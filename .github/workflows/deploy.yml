@@ -30,20 +30,21 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npx wrangler deploy --name 5h3ll-ui-docs
 
-      - name: Configure git to use HTTPS
-        run: |
-          git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
-          git config --global url."https://github.com/".insteadOf "git@github.com:"
-
       - name: Build packages
         run: npm run build
 
       - name: Publish @social-5h3ll/5h3ll-ui to npm
-        run: npm publish packages/css --access public
+        run: |
+          git config --global --replace-all url."https://github.com/".insteadOf "ssh://git@github.com/"
+          git config --global --replace-all url."https://github.com/".insteadOf "git@github.com:"
+          npm publish packages/css --access public --registry https://registry.npmjs.org/
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @social-5h3ll/5h3ll-cli to npm
-        run: npm publish packages/cli --access public
+        run: |
+          git config --global --replace-all url."https://github.com/".insteadOf "ssh://git@github.com/"
+          git config --global --replace-all url."https://github.com/".insteadOf "git@github.com:"
+          npm publish packages/cli --access public --registry https://registry.npmjs.org/
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
