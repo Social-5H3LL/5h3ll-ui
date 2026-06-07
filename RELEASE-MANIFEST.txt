@@ -1,0 +1,48 @@
+5H3LL-UI v0.1.2 — Public release archive
+Generated: 2026-06-07
+
+Purpose
+-------
+Source snapshot for public release / off-site backup. Rebuild artifacts
+locally after extract: npm ci && npm run build && npm run docs:build
+
+Included
+--------
+- src/              Component CSS, JS, Nunjucks/Jinja macros
+- docs/             Eleventy documentation site source (incl. design demos)
+- packages/         @social-5h3ll/5h3ll-ui and @social-5h3ll/5h3ll-cli (source)
+- scripts/          Build, CSS entrypoint generators, agent-rules sync
+- agents/           SKILL.md + design-md brand skins (cursor, claude, grok,
+                    openai, openclaw, hermes) with tokens.css per skin
+- screenshots/      README cover and theme preview images
+- README.md         Project overview and install
+- CHANGELOG.md      Release history
+- AUTHORS.md        Attribution
+- LICENSE.md        MIT license
+- CONTRIBUTING.md   Contribution and deploy notes
+- ROADMAP.md        Component backlog
+- package.json      Workspace root manifest
+- package-lock.json Locked dependency tree
+- .eleventy.js      Docs site config
+- wrangler.jsonc    Cloudflare Workers deploy config
+- .gitignore        Git ignore rules
+- .gitattributes    Git attributes
+- RELEASE-MANIFEST.txt  This file
+
+Excluded from public release archive (local preview / maintainer only)
+----------------------------------------------------------------------
+- landing/          Standalone marketing landing (npm run landing:dev)
+- dev/              Local workflow inbox and agent rules
+- .eleventy.landing.js  Landing site Eleventy config (see dev-release zip)
+- node_modules/     Install via npm ci
+- _site/            Docs build output (npm run docs:build)
+- _landing/         Landing build output (npm run landing:build)
+- packages/*/dist/    Package build output (npm run build)
+
+Restore
+-------
+  unzip 5h3ll-ui-v0.1.2-release-2026-06-07.zip -d 5h3ll-ui-v0.1.2
+  cd 5h3ll-ui-v0.1.2
+  npm ci
+  npm run build
+  npm run docs:build

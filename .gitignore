@@ -1,0 +1,17 @@
+# Keep these files
+!.gitignore
+!.gitattributes
+!.eleventy.js
+
+# Build outputs
+_site/
+_landing/
+node_modules/
+packages/cli/dist/
+packages/css/dist/
+
+# Logs
+npm-debug.log*
+
+# Secrets (local only)
+.npmrc

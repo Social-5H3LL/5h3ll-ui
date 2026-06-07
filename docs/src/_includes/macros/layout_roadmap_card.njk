@@ -1,0 +1,22 @@
+{% macro layout_roadmap_card(icon, title, status, description, link_url="", link_label="") %}
+<article class="layouts-roadmap-card">
+  <header class="layouts-roadmap-card-header">
+    <div class="layouts-roadmap-card-icon" aria-hidden="true">
+      {% lucide icon, { "class": "size-5" } %}
+    </div>
+    {% if status == "live" %}
+    <span class="badge-secondary">Live</span>
+    {% else %}
+    <span class="badge-outline">Planned</span>
+    {% endif %}
+  </header>
+
+  <div class="layouts-roadmap-card-body">
+    <h3 class="layouts-roadmap-card-title">{{ title }}</h3>
+    <p>{{ description }}</p>
+    {% if link_url and link_label %}
+    <a href="{{ link_url }}" class="layouts-roadmap-card-link">{{ link_label }}</a>
+    {% endif %}
+  </div>
+</article>
+{% endmacro %}

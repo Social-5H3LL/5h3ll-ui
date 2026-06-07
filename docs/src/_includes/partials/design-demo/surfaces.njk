@@ -1,0 +1,41 @@
+{% if skin.id == 'openclaw' %}
+  {% include "partials/design-demo/openclaw-replica.njk" %}
+{% elif skin.id == 'hermes' %}
+  {% include "partials/design-demo/hermes-replica.njk" %}
+{% else %}
+<section class="design-skin-demo-inner">
+  <header class="design-skin-demo-header">
+    <p class="design-skin-demo-eyebrow">{{ skin.brand }} · DESIGN.md</p>
+    <h1>{{ skin.headline }}</h1>
+    <p class="text-muted-foreground max-w-xl">{{ skin.tagline }}</p>
+    {% if skin.installSnippet %}
+      <pre class="design-skin-demo-install"><code>{{ skin.installSnippet }}</code></pre>
+    {% endif %}
+    <div class="flex flex-wrap gap-2 pt-1">
+      <button type="button" class="btn">Primary action</button>
+      <button type="button" class="btn-outline">Secondary</button>
+      <button type="button" class="btn-ghost">Ghost</button>
+    </div>
+  </header>
+
+  <div class="design-skin-demo-grid">
+    {% set title_id = "ai-chat-" ~ skin.id ~ "-title" %}
+    {% set input_id = "ai-chat-" ~ skin.id ~ "-input" %}
+    {% set name = skin.chatName %}
+    {% set email = skin.chatEmail %}
+    {% include "partials/blocks/ai-chat-panel.njk" %}
+
+    {% set title_id = "cta-" ~ skin.id ~ "-title" %}
+    <section class="card block-cta-banner text-center design-skin-demo-cta" aria-labelledby="{{ title_id }}">
+      <header class="items-center">
+        <h2 id="{{ title_id }}">{{ skin.ctaTitle }}</h2>
+        <p>{{ skin.ctaBody }}</p>
+      </header>
+      <footer class="flex flex-col items-center gap-2 sm:flex-row sm:justify-center">
+        <button type="button" class="btn">Get started</button>
+        <button type="button" class="btn-outline">Learn more</button>
+      </footer>
+    </section>
+  </div>
+</section>
+{% endif %}

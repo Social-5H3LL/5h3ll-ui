@@ -1,0 +1,58 @@
+{% from "macros/block_assets.njk" import brand_logo %}
+
+<footer class="layout-footer-compact w-full bg-card font-sans">
+  <div class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+      <div>
+        <div class="flex items-center gap-2.5">
+          {{ brand_logo("size-7 object-contain", 28, 28) }}
+          <span class="text-lg font-semibold">5H3LL-UI</span>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed text-muted-foreground">
+          Production-ready UI components and blocks built with 5H3LL-UI, designed to help you ship faster.
+        </p>
+      </div>
+
+      <div>
+        <ul class="space-y-4">
+          <li><a href="/components/" class="text-xl font-bold hover:text-muted-foreground">Components</a></li>
+          <li><a href="/layouts/overview/" class="text-xl font-bold hover:text-muted-foreground">Templates</a></li>
+          <li><a href="/customization/" class="text-xl font-bold hover:text-muted-foreground">Theme Generator</a></li>
+          <li><a href="#" class="text-xl font-bold hover:text-muted-foreground">Pricing</a></li>
+          <li><a href="#" class="text-xl font-bold hover:text-muted-foreground">FAQ</a></li>
+          <li><a href="#" class="text-xl font-bold hover:text-muted-foreground">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="#" class="group flex items-center justify-between py-4 no-underline">
+          <span class="text-base font-semibold">Twitter/X</span>
+          {% lucide "arrow-up-right", { "class": "size-4" } %}
+        </a>
+        <a href="https://github.com/social-5h3ll/5h3ll-ui" class="group flex items-center justify-between border-t border-border py-4 no-underline">
+          <span class="text-base font-semibold">GitHub</span>
+          {% lucide "arrow-up-right", { "class": "size-4" } %}
+        </a>
+        <a href="#" class="group flex items-center justify-between border-t border-border py-4 no-underline">
+          <span class="text-base font-semibold">Discord</span>
+          {% lucide "arrow-up-right", { "class": "size-4" } %}
+        </a>
+        <a href="#" class="group flex items-center justify-between border-t border-border py-4 no-underline">
+          <span class="text-base font-semibold">LinkedIn</span>
+          {% lucide "arrow-up-right", { "class": "size-4" } %}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-border">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-5 text-sm text-muted-foreground">
+      <div class="flex items-center gap-4">
+        <span>© 2025 5H3LL-UI</span>
+        <span aria-hidden="true">|</span>
+        <a href="/legal/">Licences</a>
+      </div>
+      <span>Built with 5H3LL-UI</span>
+    </div>
+  </div>
+</footer>

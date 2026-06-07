@@ -1,0 +1,71 @@
+{% from "macros/block_assets.njk" import brand_logo %}
+{% from "macros/github_icon.njk" import github_icon %}
+
+<footer class="layout-footer-premium relative overflow-hidden border-t border-border bg-zinc-950 text-white">
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" aria-hidden="true"></div>
+  <div class="absolute left-1/2 top-0 size-72 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-7xl px-6 py-16">
+    <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+      <div>
+        <div class="inline-flex items-center gap-2">
+          {{ brand_logo("size-10 rounded-xl object-cover", 40, 40) }}
+          <span class="text-lg font-semibold">5H3LL-UI</span>
+        </div>
+        <p class="mt-5 max-w-sm text-sm leading-relaxed text-zinc-400">
+          Beautifully crafted UI components and landing page sections designed to help you build modern web experiences faster.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="#" class="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition hover:bg-white/10" aria-label="X">{% lucide "x", { "class": "size-4" } %}</a>
+          <a href="#" class="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition hover:bg-white/10" aria-label="LinkedIn">{% lucide "share-2", { "class": "size-4" } %}</a>
+          <a href="#" class="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition hover:bg-white/10" aria-label="GitHub">{{ github_icon("size-4") }}</a>
+          <a href="#" class="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition hover:bg-white/10" aria-label="Instagram">{% lucide "camera", { "class": "size-4" } %}</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-semibold">Product</h3>
+        <ul class="mt-5 space-y-3 text-sm text-zinc-400">
+          <li><a href="#" class="hover:text-white">Features</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Templates</a></li>
+          <li><a href="#" class="hover:text-white">Integrations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold">Company</h3>
+        <ul class="mt-5 space-y-3 text-sm text-zinc-400">
+          <li><a href="#" class="hover:text-white">About</a></li>
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold">Stay Updated</h3>
+        <p class="mt-3 text-sm text-zinc-400">Subscribe for product updates and new releases.</p>
+        <form class="mt-5 space-y-3" action="#" method="post">
+          <input type="email" required placeholder="you@example.com" class="input w-full border-white/10 bg-white/5 text-white placeholder:text-zinc-500" aria-label="Email address">
+          <button type="submit" class="btn w-full">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="my-10 h-px bg-white/10" aria-hidden="true"></div>
+
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-3 text-sm text-zinc-400">
+        <div class="layout-footer-premium-status-dot size-2 rounded-full bg-green-500" aria-hidden="true"></div>
+        All systems operational
+      </div>
+      <div class="text-sm text-zinc-500">© 2026 5H3LL-UI. All rights reserved.</div>
+      <div class="flex gap-5 text-sm text-zinc-400">
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Terms</a>
+        <a href="#" class="hover:text-white">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>

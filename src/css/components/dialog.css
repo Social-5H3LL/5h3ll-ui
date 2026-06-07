@@ -1,0 +1,52 @@
+/* Dialog */
+@layer components {
+  .dialog {
+    @apply bg-transparent p-0 text-inherit opacity-0 transition-all transition-discrete backdrop:opacity-0 backdrop:transition-all backdrop:transition-discrete;
+    max-width: none;
+    max-height: none;
+
+    &:is([open], :popover-open) {
+      @apply opacity-100 backdrop:opacity-100;
+
+      > * {
+        @apply scale-100;
+      }
+
+      @starting-style {
+        @apply opacity-0 backdrop:opacity-0;
+
+        > * {
+          @apply scale-95;
+        }
+      }
+    }
+
+    > * {
+      @apply fixed top-1/2 left-1/2 z-50 flex max-h-[calc(100%_-_2rem)] w-full -translate-x-1/2 -translate-y-1/2 scale-95 flex-col transition-all outline-hidden;
+    }
+
+    > * > header {
+      @apply flex flex-col;
+    }
+
+    > * > section {
+      @apply flex-1;
+    }
+
+    > * > footer {
+      @apply flex flex-col-reverse sm:flex-row sm:justify-end;
+    }
+
+    > * > :is(button, form[method='dialog']) {
+      @apply absolute;
+    }
+
+    > * > :is(button, form[method='dialog'] > button) {
+      @apply inline-flex items-center justify-center opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0;
+    }
+
+    > * > :is(button, form[method='dialog'] > button) > svg:not([class*='size-']) {
+      @apply size-4;
+    }
+  }
+}

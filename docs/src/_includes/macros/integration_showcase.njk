@@ -1,0 +1,42 @@
+{#
+  Integration showcase helpers — Lobe Icons CDN only (unpkg PNG/SVG).
+#}
+{% from "macros/lobe_agent_icon.njk" import lobe_brand_image %}
+
+{% macro lobe_integration_icon_src(slug) -%}
+https://unpkg.com/@lobehub/icons-static-svg@latest/icons/{{ slug }}.svg
+{%- endmacro %}
+
+{% macro lobe_integration_icon_png_src(slug, tone) -%}
+https://unpkg.com/@lobehub/icons-static-png@latest/{{ tone }}/{{ slug }}.png
+{%- endmacro %}
+
+{% macro integration_logo(slug, name, img_class="size-12 shrink-0 object-contain", width=48, height=48, brand_light_tone="light", brand_dark_tone="dark") %}
+{{ lobe_brand_image(
+  lobe_integration_icon_png_src(slug, brand_light_tone),
+  lobe_integration_icon_png_src(slug, brand_dark_tone),
+  name,
+  img_class,
+  width,
+  height
+) }}
+{% endmacro %}
+
+{% macro integration_marquee_tile(provider) %}
+<article class="block-integrations-marquee-tile w-40 shrink-0">
+  <div class="card p-6 text-center shadow-xs">
+    <div class="flex flex-col items-center gap-3">
+      {{ integration_logo(
+        provider.slug,
+        provider.name,
+        "size-12 object-contain",
+        48,
+        48,
+        provider.brandLightTone or "light",
+        provider.brandDarkTone or "dark"
+      ) }}
+      <span class="font-medium">{{ provider.name }}</span>
+    </div>
+  </div>
+</article>
+{% endmacro %}

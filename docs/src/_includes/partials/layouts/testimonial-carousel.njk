@@ -1,0 +1,56 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section
+  class="layout-testimonial-carousel w-full max-w-3xl py-16"
+  aria-labelledby="testimonial-carousel-title"
+  data-testimonial-carousel
+>
+  <h2 id="testimonial-carousel-title" class="sr-only">Customer testimonials</h2>
+
+  <div class="card rounded-3xl p-8 shadow-xs md:p-12">
+    <div class="relative min-h-[280px]">
+      {% for item in testimonials.slice(0, 3) %}
+        <article
+          class="layout-testimonial-carousel-slide"
+          data-testimonial-carousel-slide
+          {% if not loop.first %}hidden{% endif %}
+        >
+          <blockquote class="text-xl font-light leading-relaxed md:text-2xl">
+            “{{ item.quote }}”
+          </blockquote>
+          <div class="mt-8 flex items-center gap-3">
+            {{ pravatar(48, item.avatarId, "size-12 rounded-full", item.name) }}
+            <div>
+              <p class="font-semibold">{{ item.name }}</p>
+              <p class="text-sm text-muted-foreground">{{ item.role }}</p>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="mt-8 flex items-center justify-center gap-4">
+      <button type="button" class="btn-icon-outline size-10" data-testimonial-carousel-prev aria-label="Previous testimonial">
+        {% lucide "chevron-left", { "class": "size-5" } %}
+      </button>
+
+      <div class="flex gap-2" role="tablist" aria-label="Testimonial slides">
+        {% for item in testimonials.slice(0, 3) %}
+          <button
+            type="button"
+            class="layout-testimonial-carousel-dot size-2.5 rounded-full bg-muted-foreground/40 transition-colors"
+            data-testimonial-carousel-dot
+            aria-label="Show testimonial {{ loop.index }}"
+            {% if loop.first %}aria-current="true"{% endif %}
+          ></button>
+        {% endfor %}
+      </div>
+
+      <button type="button" class="btn-icon-outline size-10" data-testimonial-carousel-next aria-label="Next testimonial">
+        {% lucide "chevron-right", { "class": "size-5" } %}
+      </button>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/testimonial-carousel.js" defer></script>

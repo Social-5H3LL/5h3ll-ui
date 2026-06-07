@@ -1,0 +1,46 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section class="block-cta-learning-split py-10 lg:py-16" aria-labelledby="cta-learning-split-title">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="grid gap-4 lg:grid-cols-2">
+      <div class="card flex flex-col rounded-xl bg-muted/40">
+        <div class="flex h-full flex-col justify-center space-y-6 p-6 lg:p-12">
+          <div class="space-y-4 text-balance">
+            <h2 id="cta-learning-split-title" class="text-3xl font-bold md:text-4xl">
+              Master new skills &amp; advance your career
+            </h2>
+            <p class="text-lg leading-relaxed text-muted-foreground">
+              Discover thousands of courses taught by industry experts.
+              Learn at your own pace and transform your professional journey with practical, hands-on training.
+            </p>
+          </div>
+          <div>
+            <a href="#" class="btn">Start Learning</a>
+          </div>
+          <div class="mt-auto space-y-2">
+            <p class="text-sm text-muted-foreground">Join over 2.3M active learners</p>
+            <div class="flex -space-x-3">
+              {{ pravatar(40, 10, "size-10 rounded-full border-4 border-muted object-cover", "Learner") }}
+              {{ pravatar(40, 20, "size-10 rounded-full border-4 border-muted object-cover", "Learner") }}
+              {{ pravatar(40, 30, "size-10 rounded-full border-4 border-muted object-cover", "Learner") }}
+              {{ pravatar(40, 40, "size-10 rounded-full border-4 border-muted object-cover", "Learner") }}
+              {{ pravatar(40, 15, "size-10 rounded-full border-4 border-muted object-cover", "Learner") }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="relative aspect-square overflow-hidden rounded-xl">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+          alt="Students learning together"
+          class="absolute inset-0 h-full w-full object-cover"
+          width="1200"
+          height="1200"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
+    </div>
+  </div>
+</section>

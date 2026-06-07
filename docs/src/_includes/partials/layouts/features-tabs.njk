@@ -1,0 +1,61 @@
+<section class="layout-features-tabs relative overflow-hidden py-16 sm:py-20" aria-labelledby="features-tabs-title">
+  <div class="layout-features-tabs-glow absolute inset-0" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl space-y-4 text-center">
+      <h2 id="features-tabs-title" class="text-4xl font-bold lg:text-5xl">Productivity Solutions</h2>
+      <p class="text-lg leading-relaxed text-muted-foreground">
+        Empower your team with intelligent tools for workflow automation, collaboration, analytics and project management.
+        Everything needed to scale operations in one modern platform.
+      </p>
+    </div>
+
+    <div class="tabs mt-12" data-ui5h3ll-tabs>
+      <div role="tablist" aria-label="Productivity features" class="mx-auto flex w-fit flex-wrap justify-center gap-2 rounded-2xl bg-muted p-2">
+        {% for tab in featuresTabs %}
+          <button
+            type="button"
+            role="tab"
+            id="features-tab-{{ tab.id }}"
+            aria-controls="features-panel-{{ tab.id }}"
+            aria-selected="{{ 'true' if loop.first else 'false' }}"
+          >
+            {{ tab.label }}
+          </button>
+        {% endfor %}
+      </div>
+
+      {% for tab in featuresTabs %}
+        <div
+          role="tabpanel"
+          id="features-panel-{{ tab.id }}"
+          aria-labelledby="features-tab-{{ tab.id }}"
+          {% if not loop.first %}hidden{% endif %}
+          class="mt-10"
+        >
+          <div class="grid items-start gap-8 lg:grid-cols-2">
+            <figure class="overflow-hidden rounded-3xl shadow-lg">
+              <img src="{{ tab.image }}" alt="{{ tab.title }}" class="h-full w-full object-cover transition duration-700 hover:scale-105" width="1200" height="800" loading="lazy" decoding="async">
+            </figure>
+
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-3xl font-bold">{{ tab.title }}</h3>
+                <p class="mt-4 leading-relaxed text-muted-foreground">{{ tab.description }}</p>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                {% for item in tab.items %}
+                  <article class="rounded-2xl border border-border bg-muted/40 p-5">
+                    <h4 class="font-semibold">{{ item.title }}</h4>
+                    <p class="mt-2 text-sm text-muted-foreground">{{ item.description }}</p>
+                  </article>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

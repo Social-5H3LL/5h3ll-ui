@@ -1,0 +1,68 @@
+{% from "macros/block_assets.njk" import brand_logo %}
+{% from "macros/github_icon.njk" import github_icon %}
+
+<footer class="layout-footer-columns mx-auto w-full max-w-[1350px] overflow-hidden rounded-tl-3xl rounded-tr-3xl border border-border bg-card px-4 pt-8 font-sans sm:px-8 md:px-16 lg:px-28 lg:pt-12">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:gap-12 lg:grid-cols-6">
+    <div class="space-y-6 lg:col-span-3">
+      <a href="/" class="inline-flex items-center gap-2 text-foreground no-underline">
+        {{ brand_logo("size-8 object-contain", 32, 32) }}
+        <span class="font-semibold">5H3LL-UI</span>
+      </a>
+      <p class="max-w-96 text-sm leading-6 text-muted-foreground">
+        5H3LL-UI helps you build faster by transforming your design vision into fully functional, production-ready UI components.
+      </p>
+      <div class="flex gap-5 text-muted-foreground md:gap-6">
+        <a href="#" aria-label="X">{% lucide "x", { "class": "size-4" } %}</a>
+        <a href="#" aria-label="GitHub">{{ github_icon("size-4") }}</a>
+        <a href="#" aria-label="LinkedIn">{% lucide "share-2", { "class": "size-4" } %}</a>
+        <a href="#" aria-label="YouTube">{% lucide "video", { "class": "size-4" } %}</a>
+        <a href="#" aria-label="Instagram">{% lucide "camera", { "class": "size-4" } %}</a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 items-start gap-8 md:grid-cols-3 md:gap-12 lg:col-span-3 lg:gap-28">
+      <div>
+        <h3 class="mb-4 text-sm font-medium">Products</h3>
+        <ul class="space-y-3 text-sm text-muted-foreground">
+          <li><a href="/components/">Components</a></li>
+          <li><a href="/layouts/overview/">Templates</a></li>
+          <li><a href="/blocks/">Blocks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-4 text-sm font-medium">Resources</h3>
+        <ul class="space-y-3 text-sm text-muted-foreground">
+          <li><a href="/introduction/">5H3LL-UI</a></li>
+          <li><a href="/kitchen-sink/">Kitchen sink</a></li>
+          <li><a href="/components/">Components</a></li>
+          <li><a href="/docs-site/">Docs site</a></li>
+        </ul>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <h3 class="mb-4 text-sm font-medium">Company</h3>
+        <ul class="space-y-3 text-sm text-muted-foreground">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Vision</a></li>
+          <li class="flex items-center gap-2">
+            <a href="#">Careers</a>
+            <span class="badge-secondary rounded-full px-2 py-0.5 text-[11px]">HIRING</span>
+          </li>
+          <li><a href="/legal/">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto mt-12 flex max-w-7xl items-center justify-between border-t border-border pt-4">
+    <p class="text-sm text-muted-foreground">© 2027 5H3LL-UI</p>
+    <p class="text-sm text-muted-foreground">All rights reserved.</p>
+  </div>
+
+  <div class="relative">
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 mx-auto h-full max-h-64 w-full max-w-3xl rounded-full bg-muted blur-[100px]" aria-hidden="true"></div>
+    <div class="layout-footer-columns-watermark mt-6 text-center text-[clamp(3rem,15vw,15rem)] leading-[0.7] font-extrabold text-transparent" aria-hidden="true">
+      5H3LL
+    </div>
+  </div>
+</footer>

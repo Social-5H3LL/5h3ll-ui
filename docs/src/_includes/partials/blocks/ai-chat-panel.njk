@@ -1,0 +1,60 @@
+<section class="card block-ai-chat-panel w-full" aria-labelledby="{{ title_id | default('ai-chat-doc-title') }}">
+  <header class="flex items-center gap-3">
+    <img
+      src="{{ avatar_src | default('/assets/images/avatar-1.png') }}"
+      alt=""
+      width="40"
+      height="40"
+      class="size-10 shrink-0 rounded-full"
+    />
+    <div class="me-auto flex min-w-0 flex-col gap-1">
+      <h2 id="{{ title_id | default('ai-chat-doc-title') }}" class="text-sm font-medium leading-none">{{ name | default('Clara Whitfield') }}</h2>
+      <p class="text-sm text-muted-foreground">{{ email | default('clara@example.com') }}</p>
+    </div>
+    <button
+      type="button"
+      class="btn-icon-outline shrink-0 rounded-full"
+      aria-label="New message"
+      data-tooltip="New message"
+      data-side="left"
+      data-align="end"
+    >
+      {% lucide "plus" %}
+    </button>
+  </header>
+
+  <section role="log" aria-label="Chat messages" aria-live="polite" class="block-ai-chat-panel-messages min-h-52 space-y-4">
+    <div class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-muted px-3 py-2 text-sm">
+      Hi, how can I help you today?
+    </div>
+    <div class="ms-auto flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-primary px-3 py-2 text-sm text-primary-foreground">
+      Hey, I'm having trouble with my account.
+    </div>
+    <div class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-muted px-3 py-2 text-sm">
+      What seems to be the problem?
+    </div>
+    <div class="ms-auto flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-primary px-3 py-2 text-sm text-primary-foreground">
+      I can't log in.
+    </div>
+  </section>
+
+  <footer class="flex items-center gap-3">
+    <label class="sr-only" for="{{ input_id | default('ai-chat-doc-input') }}">Message</label>
+    <input
+      type="text"
+      id="{{ input_id | default('ai-chat-doc-input') }}"
+      class="input w-full"
+      placeholder="Type your message here..."
+      autocomplete="off"
+      oninput="
+        const send = this.parentElement.querySelector('button');
+        if (!send) return;
+        if (this.value.trim()) send.removeAttribute('disabled');
+        else send.setAttribute('disabled', 'true');
+      "
+    />
+    <button type="button" class="btn-icon shrink-0" aria-label="Send message" disabled>
+      {% lucide "send" %}
+    </button>
+  </footer>
+</section>

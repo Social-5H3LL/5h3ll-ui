@@ -1,0 +1,52 @@
+{% from "macros/integration_showcase.njk" import integration_logo %}
+
+<section class="block-integrations-grid w-full py-16 lg:py-24" aria-labelledby="integrations-grid-title">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="integrations-grid-title" class="text-3xl font-bold tracking-tight lg:text-4xl">
+        Integrate effortlessly with your favorite platforms
+      </h2>
+
+      <p class="mt-4 text-lg text-muted-foreground">
+        Connect with leading tools and services to streamline and enhance your workflow.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {% for provider in integrationProviders %}
+        <article class="card block-integrations-grid-card overflow-hidden shadow-xs transition-shadow hover:shadow-md">
+          <header>
+            <div class="mb-6 flex size-12 items-center justify-center rounded-xl bg-muted">
+              {{ integration_logo(
+                provider.slug,
+                provider.name,
+                "size-8 object-contain",
+                32,
+                32,
+                provider.brandLightTone or "light",
+                provider.brandDarkTone or "dark"
+              ) }}
+            </div>
+            <h3>{{ provider.name }}</h3>
+          </header>
+
+          <section>
+            <p class="text-sm leading-6 text-muted-foreground">{{ provider.description }}</p>
+          </section>
+
+          <footer class="border-t border-dashed border-border bg-muted/40 p-4">
+            <a
+              href="{{ provider.url }}"
+              class="btn-outline flex w-full items-center justify-between"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn More
+              {% lucide "arrow-right", { "class": "size-4 shrink-0" } %}
+            </a>
+          </footer>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

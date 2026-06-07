@@ -1,0 +1,30 @@
+<section class="block-newsletter-inline relative overflow-hidden py-20 lg:py-28" aria-labelledby="newsletter-inline-title">
+  <div class="absolute -top-32 left-1/2 size-72 -translate-x-1/2 rounded-full bg-muted/40 blur-3xl" aria-hidden="true"></div>
+  <div class="absolute bottom-0 right-0 size-64 rounded-full bg-muted/20 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto flex max-w-6xl flex-col items-center px-4 text-center md:px-6">
+    <div class="max-w-2xl">
+      <div class="mx-auto mb-6 flex size-16 items-center justify-center rounded-2xl border border-border bg-card shadow-xs">
+        {% lucide "mail", { "class": "size-8 text-primary" } %}
+      </div>
+      <h2 id="newsletter-inline-title" class="text-4xl font-bold tracking-tight md:text-5xl">Join Our Community</h2>
+      <p class="mt-5 text-lg text-muted-foreground">
+        Subscribe to our newsletter to get the latest updates, exclusive content, product launches, and special offers delivered directly to your inbox.
+      </p>
+    </div>
+
+    <div class="mt-12 w-full max-w-md">
+      <div class="card rounded-3xl border-border/60 bg-card/80 p-8 shadow-xl backdrop-blur-md">
+        <div>
+          <h3 class="text-2xl font-semibold">Subscribe to our Newsletter</h3>
+          <p class="mt-2 text-sm text-muted-foreground">Stay up-to-date with our latest news and exclusive offers.</p>
+        </div>
+        <form class="mt-6 space-y-4" action="#" method="post">
+          <input type="email" required placeholder="you@example.com" class="input w-full" aria-label="Email address">
+          <button type="submit" class="btn w-full">Subscribe</button>
+        </form>
+        <p class="mt-4 text-center text-xs text-muted-foreground">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>

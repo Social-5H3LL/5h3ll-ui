@@ -1,0 +1,32 @@
+{% from "macros/github_icon.njk" import github_icon %}
+<section class="card block-sign-in-form w-full" aria-labelledby="{{ title_id | default('sign-in-doc-title') }}">
+  <header>
+    <h2 id="{{ title_id | default('sign-in-doc-title') }}">Sign in</h2>
+    <p>Enter your credentials to access your account</p>
+  </header>
+
+  <section>
+    <form class="grid gap-4">
+      <div class="grid gap-2">
+        <label class="label" for="{{ email_id | default('sign-in-doc-email') }}">Email</label>
+        <input class="input" type="email" id="{{ email_id | default('sign-in-doc-email') }}" placeholder="name@example.com" autocomplete="username">
+      </div>
+      <div class="grid gap-2">
+        <div class="flex items-center gap-2">
+          <label class="label" for="{{ password_id | default('sign-in-doc-password') }}">Password</label>
+          <a href="#" class="ms-auto text-sm underline-offset-4 hover:underline">Forgot password?</a>
+        </div>
+        <input class="input" type="password" id="{{ password_id | default('sign-in-doc-password') }}" autocomplete="current-password">
+      </div>
+      <button type="button" class="btn w-full">Sign in</button>
+      <button type="button" class="btn-outline w-full">
+        {{ github_icon("size-4 shrink-0") }}
+        Continue with GitHub
+      </button>
+    </form>
+  </section>
+
+  <footer class="text-center text-sm text-muted-foreground">
+    Don't have an account? <a href="#" class="underline-offset-4 hover:underline">Sign up</a>
+  </footer>
+</section>

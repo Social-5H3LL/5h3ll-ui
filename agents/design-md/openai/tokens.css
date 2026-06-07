@@ -1,0 +1,25 @@
+[data-design-skin="openai"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #0d0d0d;
+  --card: #ffffff;
+  --card-foreground: #0d0d0d;
+  --popover: #ffffff;
+  --popover-foreground: #0d0d0d;
+  --primary: #10a37f;
+  --primary-foreground: #ffffff;
+  --secondary: #f7f7f7;
+  --secondary-foreground: #0d0d0d;
+  --muted: #f7f7f7;
+  --muted-foreground: #6e6e80;
+  --accent: #f7f7f7;
+  --accent-foreground: #0d0d0d;
+  --border: #ececf1;
+  --input: #ececf1;
+  --ring: #10a37f;
+  --radius: 9999px;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}

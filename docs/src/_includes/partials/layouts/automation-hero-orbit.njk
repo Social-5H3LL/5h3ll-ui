@@ -1,0 +1,101 @@
+{% from "macros/block_assets.njk" import pravatar, lobe_icon, brand_logo %}
+
+<section class="layout-automation-hero-orbit mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-2 lg:items-center" aria-labelledby="automation-hero-orbit-title">
+  <div>
+    <a href="#" class="badge-secondary inline-flex items-center rounded-full px-3 py-1 text-sm no-underline">
+      <span class="badge mr-2 px-2 py-0.5 text-[10px] uppercase">New</span>
+      Try 30 days free trial option →
+    </a>
+
+    <h1 id="automation-hero-orbit-title" class="mt-6 text-5xl font-bold tracking-tight lg:text-6xl">
+      Automation that delivers real results
+    </h1>
+
+    <p class="mt-5 max-w-xl text-lg text-muted-foreground">
+      No complexity. No noise. Just clean, reliable automation to boost your team's efficiency.
+    </p>
+
+    <form
+      class="layout-automation-hero-orbit-subscribe relative mt-8 flex w-fit max-w-full items-center rounded-full border border-border bg-card shadow-xs transition-[width,box-shadow] duration-300 ease-out"
+      data-automation-hero-orbit-subscribe
+      aria-expanded="false"
+    >
+      <button
+        type="button"
+        class="layout-automation-hero-orbit-subscribe-hint flex items-center gap-2 rounded-full px-4 py-2.5 text-sm text-muted-foreground transition-opacity duration-200 hover:text-foreground"
+        data-automation-hero-orbit-subscribe-open
+      >
+        {% lucide "mail", { "class": "size-4 shrink-0" } %}
+        <span>Enter your email</span>
+      </button>
+
+      <div class="layout-automation-hero-orbit-subscribe-fields flex min-w-0 items-center gap-2 overflow-hidden">
+        <input
+          type="email"
+          class="layout-automation-hero-orbit-subscribe-input input min-w-0 flex-1 border-0 bg-transparent shadow-none focus-visible:ring-0"
+          placeholder="Enter your email"
+          aria-label="Email address"
+          data-automation-hero-orbit-subscribe-input
+          tabindex="-1"
+        >
+        <button type="submit" class="btn me-1 shrink-0 rounded-full">Subscribe now</button>
+      </div>
+    </form>
+
+    <div class="mt-8 flex items-center gap-4">
+      <div class="flex -space-x-2">
+        {{ pravatar(36, 11, "size-9 rounded-full ring-2 ring-background", "Team member") }}
+        {{ pravatar(36, 12, "size-9 rounded-full ring-2 ring-background", "Team member") }}
+        {{ pravatar(36, 13, "size-9 rounded-full ring-2 ring-background", "Team member") }}
+      </div>
+      <div>
+        <div class="text-amber-500" aria-hidden="true">★★★★★</div>
+        <div class="text-xs text-muted-foreground">Used by 10,000+ users</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout-automation-hero-orbit-stage relative mx-auto flex min-h-[600px] w-full max-w-full items-center justify-center">
+    <div class="absolute size-[240px] rounded-full border border-border" aria-hidden="true"></div>
+    <div class="absolute size-[460px] rounded-full border border-border" aria-hidden="true"></div>
+    <div class="layout-automation-hero-orbit-glow absolute size-[180px] rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
+
+    <div class="layout-automation-hero-orbit-ring-a absolute size-[240px]">
+      <div class="layout-automation-hero-orbit-counter-a absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="layout-automation-hero-orbit-float flex size-16 items-center justify-center rounded-full border border-border bg-card shadow-lg">
+          {{ lobe_icon(orbitIcons[0].slug, orbitIcons[0].label, "size-8 object-contain") }}
+        </div>
+      </div>
+      <div class="layout-automation-hero-orbit-counter-a absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+        <div class="layout-automation-hero-orbit-float flex size-16 items-center justify-center rounded-full border border-border bg-card shadow-lg">
+          {{ lobe_icon(orbitIcons[1].slug, orbitIcons[1].label, "size-8 object-contain") }}
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-automation-hero-orbit-ring-b absolute size-[460px]">
+      <div class="layout-automation-hero-orbit-counter-b absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="layout-automation-hero-orbit-float flex size-16 items-center justify-center rounded-full border border-border bg-card shadow-lg">
+          {{ lobe_icon(orbitIcons[2].slug, orbitIcons[2].label, "size-8 object-contain") }}
+        </div>
+      </div>
+      <div class="layout-automation-hero-orbit-counter-b absolute top-[72%] left-0 -translate-x-1/2">
+        <div class="layout-automation-hero-orbit-float flex size-16 items-center justify-center rounded-full border border-border bg-card shadow-lg">
+          {{ lobe_icon(orbitIcons[3].slug, orbitIcons[3].label, "size-8 object-contain") }}
+        </div>
+      </div>
+      <div class="layout-automation-hero-orbit-counter-b absolute top-[72%] right-0 translate-x-1/2">
+        <div class="layout-automation-hero-orbit-float flex size-16 items-center justify-center rounded-full border border-border bg-card shadow-lg">
+          {{ lobe_icon(orbitIcons[4].slug, orbitIcons[4].label, "size-8 object-contain") }}
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-10 flex size-20 items-center justify-center rounded-full border border-border bg-card shadow-xl">
+      <div class="absolute inset-0 rounded-full bg-primary/10 blur-xl" aria-hidden="true"></div>
+      <span class="relative">{{ brand_logo("size-10 object-contain", 40, 40) }}</span>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/automation-hero-orbit-subscribe.js" defer></script>

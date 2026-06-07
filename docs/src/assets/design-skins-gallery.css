@@ -1,0 +1,16 @@
+.design-skin-demo-list {
+  display: grid;
+  gap: 0.875rem;
+}
+
+.design-skin-demo-list-item {
+  gap: 0.875rem;
+}
+
+.design-skin-demo-list-item h3 {
+  margin: 0;
+}
+
+.design-skin-demo-list-item footer {
+  padding-top: 0.25rem;
+}

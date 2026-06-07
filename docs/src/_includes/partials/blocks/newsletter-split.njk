@@ -1,0 +1,54 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section class="block-newsletter-split relative overflow-hidden py-24" aria-labelledby="newsletter-split-title">
+  <div class="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-muted/30" aria-hidden="true"></div>
+  <div class="absolute left-1/2 top-0 size-[500px] -translate-x-1/2 rounded-full bg-muted/30 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative px-4">
+    <div class="card relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border-border/60 bg-card/80 px-6 py-24 shadow-xl backdrop-blur-md md:px-12">
+      <div class="block-newsletter-split-float-1 absolute left-[6%] top-[18%] hidden md:block">
+        {{ pravatar(72, 11, "size-[4.5rem] rounded-full border-4 border-background shadow-lg", "Subscriber") }}
+      </div>
+      <div class="block-newsletter-split-float-2 absolute right-[12%] top-[8%] hidden md:block">
+        {{ pravatar(56, 65, "size-14 rounded-full border-4 border-background shadow-lg", "Subscriber") }}
+      </div>
+      <div class="block-newsletter-split-float-3 absolute bottom-[12%] left-[4%] hidden md:block">
+        {{ pravatar(64, 47, "size-16 rounded-full border-4 border-background shadow-lg", "Subscriber") }}
+      </div>
+      <div class="block-newsletter-split-float-4 absolute bottom-[18%] right-[6%] hidden md:block">
+        {{ pravatar(72, 33, "size-[4.5rem] rounded-full border-4 border-background shadow-lg", "Subscriber") }}
+      </div>
+
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="badge-secondary mb-6 inline-flex items-center rounded-full px-4 py-1 text-sm font-medium shadow-sm">
+          {% lucide "rocket", { "class": "size-4 mr-1" } %}
+          Weekly Marketing Insights
+        </span>
+        <h2 id="newsletter-split-title" class="text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+          Stay Inspired with Weekly Marketing Tips
+        </h2>
+        <p class="mt-5 text-lg text-muted-foreground">
+          Join thousands of marketers receiving actionable growth strategies, industry trends, behind-the-scenes insights, and exclusive content every week.
+        </p>
+
+        <form class="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center" action="#" method="post">
+          <input type="email" required placeholder="name@email.com" class="input w-full sm:max-w-sm" aria-label="Email address">
+          <button type="submit" class="btn shrink-0">Subscribe</button>
+        </form>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div class="flex -space-x-3">
+            {{ pravatar(40, 10, "size-10 rounded-full border-2 border-background", "Subscriber") }}
+            {{ pravatar(40, 20, "size-10 rounded-full border-2 border-background", "Subscriber") }}
+            {{ pravatar(40, 30, "size-10 rounded-full border-2 border-background", "Subscriber") }}
+            {{ pravatar(40, 40, "size-10 rounded-full border-2 border-background", "Subscriber") }}
+          </div>
+          <p class="text-sm text-muted-foreground">
+            <span class="font-semibold text-foreground">10,000+</span> marketers already subscribed
+          </p>
+        </div>
+        <p class="mt-4 text-xs text-muted-foreground">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>

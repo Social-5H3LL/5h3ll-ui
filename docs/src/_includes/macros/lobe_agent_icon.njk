@@ -1,0 +1,75 @@
+{#
+  LobeHub brand image — one <img>; integrations page script swaps src on theme toggle.
+#}
+{% macro lobe_brand_image(light_src, dark_src, alt="", class="", width=none, height=none) %}
+<img
+  class="integrations-brand-image {{ class }}"
+  src="{{ light_src }}"
+  data-brand-light="{{ light_src }}"
+  data-brand-dark="{{ dark_src }}"
+  alt="{{ alt }}"
+  {% if width %}width="{{ width }}"{% endif %}
+  {% if height %}height="{{ height }}"{% endif %}
+  loading="lazy"
+  decoding="async"
+/>
+{% endmacro %}
+
+{% macro integration_agent_card(
+  icon_light,
+  icon_dark,
+  text_light,
+  text_dark,
+  name,
+  provider_url,
+  provider_label,
+  description,
+  meta_label="",
+  meta_content=""
+) %}
+<article class="integrations-agent-card">
+  <header class="integrations-agent-card-header">
+    <a
+      href="{{ provider_url }}"
+      class="integrations-agent-card-mark"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="{{ name }} — {{ provider_label }}"
+    >
+      {{ lobe_brand_image(icon_light, icon_dark, name, "integrations-agent-icon") }}
+      {% if text_light and text_dark %}
+      <span class="integrations-agent-card-wordmark" aria-hidden="true">
+        {{ lobe_brand_image(text_light, text_dark, "", "integrations-agent-wordmark") }}
+      </span>
+      {% endif %}
+    </a>
+    <a
+      href="{{ provider_url }}"
+      class="integrations-agent-card-provider-icon btn-icon-ghost size-8 shrink-0"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="{{ provider_label }}"
+    >
+      {% lucide "external-link", { "class": "size-4 shrink-0 opacity-70" } %}
+    </a>
+  </header>
+
+  <div class="integrations-agent-card-body">
+    <p>{{ description }}</p>
+    {% if meta_label and meta_content %}
+    <p class="integrations-agent-card-meta">
+      <span class="badge-outline integrations-agent-card-meta-badge">{{ meta_label }}</span>
+      <span class="integrations-agent-card-meta-value">{{ meta_content | safe }}</span>
+    </p>
+    {% endif %}
+    <a
+      href="{{ provider_url }}"
+      class="integrations-agent-card-provider"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {{ provider_label }}
+    </a>
+  </div>
+</article>
+{% endmacro %}

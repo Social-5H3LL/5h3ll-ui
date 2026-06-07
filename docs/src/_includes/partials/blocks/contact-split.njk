@@ -1,0 +1,53 @@
+<section class="block-contact-split relative overflow-hidden py-20 lg:py-28" aria-labelledby="contact-split-title">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-rose-50/50 dark:to-rose-950/20" aria-hidden="true"></div>
+  <div class="absolute left-1/2 top-0 size-[500px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-5xl px-6">
+    <div class="mb-14 text-center">
+      <span class="badge-secondary inline-flex rounded-full px-4 py-1 text-xs font-medium shadow-sm">Contact Support</span>
+      <h2 id="contact-split-title" class="mt-6 text-4xl font-bold leading-tight lg:text-6xl">
+        We are here for you,<br class="hidden sm:block"> contact us <span class="font-serif italic text-primary">anytime</span>
+      </h2>
+      <p class="mx-auto mt-5 max-w-xl text-muted-foreground">
+        Have questions about our services or simply want to talk with us? Reach out through whichever channel works best for you.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <article class="card p-8 text-center backdrop-blur transition-all hover:-translate-y-2 hover:shadow-2xl">
+        <div class="block-contact-split-float mx-auto flex size-16 items-center justify-center rounded-full bg-primary/10 text-3xl">
+          {% lucide "message-circle", { "class": "size-7 text-primary" } %}
+        </div>
+        <h3 class="mt-5 text-xl font-semibold">Chat Now</h3>
+        <p class="mt-2 text-sm text-muted-foreground">Right from this website</p>
+        <button type="button" class="btn mt-6">Start Chat →</button>
+      </article>
+
+      <article class="card p-8 text-center backdrop-blur transition-all hover:-translate-y-2 hover:shadow-2xl">
+        <div class="block-contact-split-float mx-auto flex size-16 items-center justify-center rounded-full bg-primary/10 text-3xl">
+          {% lucide "mail", { "class": "size-7 text-primary" } %}
+        </div>
+        <h3 class="mt-5 text-xl font-semibold">Email Us</h3>
+        <p class="mt-2 text-sm text-muted-foreground">From your email app</p>
+        <a href="mailto:hello@social-5h3ll.dev" class="mt-4 inline-block font-semibold text-primary hover:underline">hello@social-5h3ll.dev</a>
+      </article>
+
+      <article class="card p-8 text-center backdrop-blur transition-all hover:-translate-y-2 hover:shadow-2xl">
+        <div class="block-contact-split-float mx-auto flex size-16 items-center justify-center rounded-full bg-rose-100 text-3xl dark:bg-rose-950">
+          {% lucide "phone", { "class": "size-7 text-rose-500" } %}
+        </div>
+        <h3 class="mt-5 text-xl font-semibold">Call or Text</h3>
+        <p class="mt-2 text-sm text-muted-foreground">Available weekdays</p>
+        <a href="tel:+15552345678" class="mt-4 inline-block font-semibold text-rose-500 hover:text-rose-600">+1 (555) 234-5678</a>
+      </article>
+    </div>
+
+    <div class="mt-12 text-center">
+      <div class="badge-secondary inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm shadow-sm">
+        {% lucide "zap", { "class": "size-4" } %}
+        Average response time: <span class="font-semibold text-foreground">under 2 hours</span>
+      </div>
+      <p class="mt-5 text-sm text-muted-foreground">Our team is available Monday–Friday, 8am–6pm.</p>
+    </div>
+  </div>
+</section>

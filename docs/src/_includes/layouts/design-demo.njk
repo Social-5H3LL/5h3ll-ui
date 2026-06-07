@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"{% if skin.mode == 'dark' %} class="dark"{% endif %}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ skin.label }} · DESIGN.md demo | 5H3LL-UI</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  {% if skin.replica %}
+  <link rel="stylesheet" href="/assets/design-skins/{{ skin.id }}.css">
+  {% if skin.id == 'openclaw' %}
+  <script src="/assets/js/openclaw-demo.js" defer></script>
+  {% elif skin.id == 'hermes' %}
+  <script src="/assets/js/hermes-demo.js" defer></script>
+  {% endif %}
+  {% else %}
+  <link rel="stylesheet" href="/assets/styles-nova.css">
+  <link rel="stylesheet" href="/assets/design-skins/{{ skin.id }}.css">
+  <link rel="stylesheet" href="/assets/design-skins-frame.css">
+  <script src="/assets/js/ui5h3ll.js?v={{ pkg.version }}" defer></script>
+  {% endif %}
+</head>
+<body class="design-skin-demo-body{% if skin.replica %} design-skin-demo-body--replica{% endif %}">
+  <div class="design-skin-frame{% if skin.replica %} design-skin-frame--replica{% endif %}" data-design-skin="{{ skin.id }}">
+    {% include "partials/design-demo/surfaces.njk" %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+.design-skin-demo-body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.design-skin-frame--replica {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.design-skin-demo-body--replica {
+  margin: 0;
+}
+
+.design-skin-frame {
+  min-height: 100vh;
+  padding: 2rem 1.25rem 2.5rem;
+}
+
+.design-skin-demo-inner {
+  max-width: 56rem;
+  margin-inline: auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.design-skin-demo-header {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.design-skin-demo-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.design-skin-demo-header h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.design-skin-demo-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 960px) {
+  .design-skin-frame {
+    padding: 2.5rem 2rem 3rem;
+  }
+
+  .design-skin-demo-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: start;
+  }
+}
+
+.design-skin-demo-install {
+  margin: 0;
+  overflow-x: auto;
+  border-radius: calc(var(--radius) - 2px);
+  text-align: left;
+}
+
+.design-skin-demo-install code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.design-skin-demo-cta h2 {
+  font-size: 1.125rem;
+}

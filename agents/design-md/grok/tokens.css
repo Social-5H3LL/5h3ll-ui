@@ -1,0 +1,45 @@
+[data-design-skin="grok"] {
+  color-scheme: dark;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card: #141414;
+  --card-foreground: #ffffff;
+  --popover: #141414;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #141414;
+  --secondary-foreground: #ffffff;
+  --muted: #212327;
+  --muted-foreground: #a1a1aa;
+  --accent: #212327;
+  --accent-foreground: #ffffff;
+  --border: #212327;
+  --input: #212327;
+  --ring: #ffffff;
+  --radius: 9999px;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+[data-design-skin="grok"] .btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+[data-design-skin="grok"] .btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-design-skin="grok"] .btn-outline {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+[data-design-skin="grok"] .block-ai-chat-panel .ms-auto.bg-primary {
+  background-color: #212327;
+  color: #ffffff;
+}

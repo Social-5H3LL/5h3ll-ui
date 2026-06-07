@@ -1,0 +1,79 @@
+<section class="block-contact-card relative overflow-hidden" aria-labelledby="contact-card-title">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-muted" aria-hidden="true"></div>
+  <div class="absolute right-0 top-0 size-[500px] rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-0 size-[400px] rounded-full bg-blue-300/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="pointer-events-none absolute inset-x-0 top-10 select-none text-center" aria-hidden="true">
+    <p class="text-[90px] font-black tracking-tight text-muted/30 md:text-[180px]">CONTACT</p>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-6 pt-24 pb-20">
+    <div class="grid gap-14 lg:grid-cols-2">
+      <div class="flex flex-col justify-center">
+        <span class="badge-secondary inline-flex w-fit rounded-full px-4 py-1 text-xs font-medium shadow-sm">Get In Touch</span>
+        <h2 id="contact-card-title" class="mt-6 flex items-center gap-3 text-5xl font-bold tracking-tight">
+          Reach Out
+          {% lucide "arrow-up-right", { "class": "size-8 text-primary" } %}
+        </h2>
+        <p class="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground">
+          Have a question or need assistance? Reach out to our dedicated support team. We're here to help with any inquiries you may have.
+        </p>
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-center gap-3">
+            <span class="flex size-6 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">{% lucide "check", { "class": "size-3.5" } %}</span>
+            <span class="text-muted-foreground">Personalized assistance</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="flex size-6 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">{% lucide "check", { "class": "size-3.5" } %}</span>
+            <span class="text-muted-foreground">Timely response</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="flex size-6 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">{% lucide "check", { "class": "size-3.5" } %}</span>
+            <span class="text-muted-foreground">Comprehensive support</span>
+          </li>
+        </ul>
+        <div class="mt-10 flex gap-3">
+          <a href="#" class="btn-icon-outline block-contact-card-social size-12 rounded-full" aria-label="X">{% lucide "x", { "class": "size-4" } %}</a>
+          <a href="#" class="btn-icon-outline block-contact-card-social size-12 rounded-full" aria-label="Facebook">f</a>
+          <a href="#" class="btn-icon-outline block-contact-card-social size-12 rounded-full" aria-label="Website">{% lucide "globe", { "class": "size-4" } %}</a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -right-10 -top-10 size-48 rounded-full bg-primary/20 blur-3xl" aria-hidden="true"></div>
+        <form class="card relative rounded-[32px] border-border/60 bg-card/80 p-8 shadow-2xl backdrop-blur-xl" action="#" method="post">
+          <h3 class="text-2xl font-bold">Send us a message</h3>
+          <p class="mt-2 text-muted-foreground">We'd love to hear from you.</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <input type="text" placeholder="Name" required class="input w-full" aria-label="Name">
+            <input type="email" placeholder="Email" required class="input w-full" aria-label="Email">
+          </div>
+          <textarea rows="6" placeholder="Tell us how we can help..." required class="textarea mt-4 w-full" aria-label="Message"></textarea>
+          <button type="submit" class="btn mt-5 w-full">Send Message</button>
+          <div class="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            {% lucide "zap", { "class": "size-4" } %}
+            Average response time: <span class="font-semibold text-foreground">under 2 hours</span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-5 md:grid-cols-3">
+      <article class="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex size-12 items-center justify-center rounded-xl bg-primary/10">{% lucide "mail", { "class": "size-5 text-primary" } %}</div>
+        <h4 class="mt-4 font-semibold">Email Us</h4>
+        <p class="mt-2 text-muted-foreground">hello@social-5h3ll.dev</p>
+      </article>
+      <article class="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex size-12 items-center justify-center rounded-xl bg-green-100 dark:bg-green-950">{% lucide "phone", { "class": "size-5 text-green-600" } %}</div>
+        <h4 class="mt-4 font-semibold">Call Us</h4>
+        <p class="mt-2 text-muted-foreground">+1 (555) 234-5678</p>
+      </article>
+      <article class="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex size-12 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-950">{% lucide "map-pin", { "class": "size-5 text-blue-600" } %}</div>
+        <h4 class="mt-4 font-semibold">Our Location</h4>
+        <p class="mt-2 text-muted-foreground">742 Evergreen Terrace<br>Springfield, IL</p>
+      </article>
+    </div>
+  </div>
+</section>

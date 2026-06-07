@@ -1,0 +1,21 @@
+/* Alert */
+@layer components {
+  .alert,
+  .alert-destructive {
+    @apply relative w-full;
+  }
+
+  .alert > :is(h2, h3, h4, h5, h6, strong, [data-title]),
+  .alert-destructive > :is(h2, h3, h4, h5, h6, strong, [data-title]) {
+    @apply min-h-4;
+  }
+
+  .alert > section,
+  .alert-destructive > section {
+    @apply grid justify-items-start gap-1;
+
+    ul {
+      @apply list-inside list-disc;
+    }
+  }
+}

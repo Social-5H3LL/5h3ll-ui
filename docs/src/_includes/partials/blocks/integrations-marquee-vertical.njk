@@ -1,0 +1,42 @@
+{% from "macros/integration_showcase.njk" import integration_marquee_tile %}
+
+<section class="block-integrations-marquee-vertical w-full py-16 lg:py-24" aria-labelledby="integrations-marquee-vertical-title">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+      <div>
+        <span class="badge-secondary">Integrations</span>
+
+        <h2 id="integrations-marquee-vertical-title" class="mt-6 text-3xl font-bold tracking-tight lg:text-4xl">
+          Integrate 5H3LL-UI with your favourite apps
+        </h2>
+
+        <p class="mt-6 max-w-lg text-lg text-muted-foreground">
+          Automate and personalize your forms. Integrate existing tools from your workflow to build a close knit data management system.
+        </p>
+
+        <a href="/integrations/" class="btn-outline mt-8">Browse All Apps</a>
+      </div>
+
+      <div
+        class="block-integrations-marquee-vertical-tracks relative flex h-[440px] justify-center gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
+        aria-hidden="true"
+      >
+        <div class="block-integrations-marquee-up flex flex-col gap-4">
+          {% for repeat in range(0, 2) %}
+            {% for provider in integrationProviders %}
+              {{ integration_marquee_tile(provider) }}
+            {% endfor %}
+          {% endfor %}
+        </div>
+
+        <div class="block-integrations-marquee-down mt-32 flex flex-col gap-4">
+          {% for repeat in range(0, 2) %}
+            {% for provider in integrationProviders | reverse %}
+              {{ integration_marquee_tile(provider) }}
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

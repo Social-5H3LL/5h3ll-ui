@@ -1,0 +1,156 @@
+{
+  "menu": [
+    {
+      "type": "group",
+      "label": "Getting started",
+      "items": [
+        "introduction",
+        "installation",
+        "customization",
+        "cli",
+        "docs-site",
+        {
+          "type": "item",
+          "label": "Kitchen sink",
+          "url": "/kitchen-sink/",
+          "icon": "layout-dashboard"
+        },
+        {
+          "type": "item",
+          "label": "Legal",
+          "url": "/legal/",
+          "icon": "scale"
+        },
+        {
+          "type": "item",
+          "label": "GitHub",
+          "url": "https://github.com/social-5h3ll/5h3ll-ui",
+          "icon": "github",
+          "external": true,
+          "attrs": { "target": "_blank", "rel": "noopener" }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "items": [
+        {
+          "type": "submenu",
+          "label": "Elements",
+          "icon": "layers",
+          "items": [
+            "components/badge",
+            "components/button",
+            "components/input",
+            "components/kbd",
+            "components/label",
+            "components/native-select",
+            "components/textarea"
+          ]
+        },
+        {
+          "type": "submenu",
+          "label": "Components",
+          "icon": "component",
+          "items": [
+            "components/accordion",
+            "components/alert",
+            "components/alert-dialog",
+            "components/avatar",
+            "components/breadcrumb",
+            "components/button-group",
+            "components/card",
+            "components/carousel",
+            "components/chart",
+            "components/checkbox",
+            "components/combobox",
+            "components/command",
+            "components/dialog",
+            "components/dropdown-menu",
+            "components/empty",
+            "components/field",
+            "components/input-group",
+            "components/item",
+            "components/pagination",
+            "components/popover",
+            "components/progress",
+            "components/radio-group",
+            "components/select",
+            "components/sidebar",
+            "components/skeleton",
+            "components/slider",
+            "components/spinner",
+            "components/switch",
+            "components/table",
+            "components/tabs",
+            "components/theme-switcher",
+            "components/toast",
+            "components/tooltip",
+            "components/typography"
+          ]
+        },
+        {
+          "type": "submenu",
+          "label": "Blocks",
+          "icon": "layout-grid",
+          "items": [
+            "blocks/ai-chat-panel",
+            "blocks/stats-row",
+            "blocks/sign-in-form",
+            "blocks/cta-banner",
+            "blocks/hero-social-proof",
+            "blocks/hero-creative-tools",
+            "blocks/cta-grid-background",
+            "blocks/cta-learning-split",
+            "blocks/newsletter-inline",
+            "blocks/newsletter-card",
+            "blocks/newsletter-split",
+            "blocks/contact-simple",
+            "blocks/contact-split",
+            "blocks/contact-card",
+            "blocks/contact-global",
+            "blocks/share-config-modal",
+            "blocks/integrations-marquee-vertical",
+            "blocks/integrations-stacked-icons",
+            "blocks/integrations-grid",
+            "blocks/integrations-marquee-horizontal"
+          ]
+        },
+        {
+          "type": "submenu",
+          "label": "Layouts",
+          "icon": "panels-top-left",
+          "items": [
+            "layouts/overview",
+            "layouts/automation-hero-orbit",
+            "layouts/features-grid",
+            "layouts/features-tabs",
+            "layouts/footer-premium",
+            "layouts/footer-columns",
+            "layouts/footer-minimal",
+            "layouts/footer-serif",
+            "layouts/footer-cta-band",
+            "layouts/footer-compact",
+            "layouts/testimonial-carousel",
+            "layouts/testimonial-switcher",
+            "layouts/testimonial-showcase",
+            "layouts/testimonials-wall",
+            "layouts/community-testimonials",
+            "layouts/community-testimonials-marquee"
+          ]
+        },
+        {
+          "type": "submenu",
+          "label": "Integrations",
+          "icon": "plug",
+          "items": [
+            "integrations",
+            "integrations/llms",
+            "integrations/design-md",
+            "integrations/design-md/demos"
+          ]
+        }
+      ]
+    }
+  ]
+}

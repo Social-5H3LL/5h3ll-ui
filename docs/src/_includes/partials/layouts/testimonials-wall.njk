@@ -1,0 +1,72 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section class="layout-testimonials-wall py-16 lg:py-24" aria-labelledby="testimonials-wall-title">
+  <div class="mx-auto max-w-7xl px-4">
+    <header class="mb-14 text-center">
+      <span class="badge-secondary inline-flex rounded-full px-3 py-1 text-xs font-semibold">Testimonials</span>
+      <h2 id="testimonials-wall-title" class="mt-4 text-4xl font-bold tracking-tight">What our users say</h2>
+      <p class="mt-3 text-muted-foreground">See what our customers have to say about us.</p>
+    </header>
+
+    <div class="layout-testimonials-wall-mask h-[760px] overflow-hidden">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div class="layout-testimonials-wall-column overflow-hidden">
+          <div class="layout-testimonials-wall-scroll layout-testimonials-wall-speed-1 flex flex-col gap-4">
+            {% for repeat in range(0, 2) %}
+              {% for item in testimonials.slice(0, 3) %}
+                <article class="layout-testimonials-wall-card card p-6 shadow-xs">
+                  <p>{{ item.quote }}</p>
+                  <div class="mt-5 flex items-center gap-3">
+                    {{ pravatar(40, item.avatarId, "size-10 rounded-full", item.name) }}
+                    <div>
+                      <div class="font-medium">{{ item.name }}</div>
+                      <div class="text-sm text-muted-foreground">{{ item.role }}</div>
+                    </div>
+                  </div>
+                </article>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="layout-testimonials-wall-column hidden overflow-hidden md:block">
+          <div class="layout-testimonials-wall-scroll layout-testimonials-wall-speed-2 flex flex-col gap-4">
+            {% for repeat in range(0, 2) %}
+              {% for item in testimonials.slice(3, 6) %}
+                <article class="layout-testimonials-wall-card card p-6 shadow-xs">
+                  <p>{{ item.quote }}</p>
+                  <div class="mt-5 flex items-center gap-3">
+                    {{ pravatar(40, item.avatarId, "size-10 rounded-full", item.name) }}
+                    <div>
+                      <div class="font-medium">{{ item.name }}</div>
+                      <div class="text-sm text-muted-foreground">{{ item.role }}</div>
+                    </div>
+                  </div>
+                </article>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="layout-testimonials-wall-column hidden overflow-hidden lg:block">
+          <div class="layout-testimonials-wall-scroll layout-testimonials-wall-speed-3 flex flex-col gap-4">
+            {% for repeat in range(0, 2) %}
+              {% for item in testimonials.slice(6, 9) %}
+                <article class="layout-testimonials-wall-card card p-6 shadow-xs">
+                  <p>{{ item.quote }}</p>
+                  <div class="mt-5 flex items-center gap-3">
+                    {{ pravatar(40, item.avatarId, "size-10 rounded-full", item.name) }}
+                    <div>
+                      <div class="font-medium">{{ item.name }}</div>
+                      <div class="text-sm text-muted-foreground">{{ item.role }}</div>
+                    </div>
+                  </div>
+                </article>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

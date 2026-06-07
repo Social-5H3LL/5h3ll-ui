@@ -1,0 +1,91 @@
+<section class="block-contact-global relative overflow-hidden" aria-labelledby="contact-global-title">
+  <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-black" aria-hidden="true"></div>
+  <div class="absolute left-1/2 top-0 size-[800px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-7xl px-6 py-20">
+    <div class="mb-16 text-center">
+      <span class="badge-secondary inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1 text-xs font-medium text-blue-300">
+        {% lucide "globe", { "class": "size-3.5 mr-1" } %}
+        Global Presence
+      </span>
+      <h2 id="contact-global-title" class="mt-6 text-5xl font-bold tracking-tight text-white md:text-7xl">
+        Get in touch with <span class="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">our global team</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+        Serving customers across multiple continents with local expertise and worldwide support.
+      </p>
+    </div>
+
+    <div class="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 shadow-2xl backdrop-blur-xl">
+      <div
+        class="block-contact-global-globe-mount w-full"
+        data-contact-global-globe
+        role="img"
+        aria-label="Interactive globe showing global office locations"
+      ></div>
+
+      <div class="pointer-events-none absolute inset-0">
+        <div class="pointer-events-auto absolute left-4 top-4 max-w-[calc(100%-2rem)] rounded-3xl border border-white/10 bg-black/40 p-4 backdrop-blur-xl sm:left-6 sm:top-6 sm:max-w-none sm:p-5">
+          <div class="text-xs uppercase tracking-widest text-slate-400">Headquarters</div>
+          <div class="mt-1 text-lg font-semibold text-white">Belfast, Northern Ireland</div>
+          <div class="mt-2 text-sm text-slate-400">Global Operations Center</div>
+        </div>
+
+        <div class="pointer-events-auto absolute inset-x-4 bottom-4 grid grid-cols-3 gap-2 sm:inset-x-auto sm:bottom-6 sm:left-6 sm:gap-3">
+          <div class="rounded-2xl border border-white/10 bg-black/40 p-3 backdrop-blur-xl sm:p-4">
+            <div class="text-xl font-bold text-white sm:text-2xl">16</div>
+            <div class="text-[10px] text-slate-400 sm:text-xs">Offices</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-black/40 p-3 backdrop-blur-xl sm:p-4">
+            <div class="text-xl font-bold text-white sm:text-2xl">24/7</div>
+            <div class="text-[10px] text-slate-400 sm:text-xs">Support</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-black/40 p-3 backdrop-blur-xl sm:p-4">
+            <div class="text-xl font-bold text-white sm:text-2xl">50K+</div>
+            <div class="text-[10px] text-slate-400 sm:text-xs">Clients</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      <article class="flex min-h-[220px] flex-col rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/10">
+        <div class="text-3xl">{% lucide "message-circle", { "class": "size-7 text-blue-400" } %}</div>
+        <h3 class="mt-4 font-semibold text-white">Sales</h3>
+        <p class="mt-2 text-sm text-slate-400">Talk to our sales team</p>
+        <a
+          href="mailto:sales@social-5h3ll.dev"
+          class="btn mt-auto w-full max-w-full justify-center break-all bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-600 sm:w-fit sm:justify-start"
+        >sales@social-5h3ll.dev</a>
+      </article>
+      <article class="flex min-h-[220px] flex-col rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/10">
+        <div class="text-3xl">{% lucide "life-buoy", { "class": "size-7 text-blue-400" } %}</div>
+        <h3 class="mt-4 font-semibold text-white">Support</h3>
+        <p class="mt-2 text-sm text-slate-400">Technical assistance</p>
+        <a
+          href="mailto:support@example.com"
+          class="mt-auto inline-block break-all text-sm text-white underline-offset-4 hover:underline"
+        >support@example.com</a>
+      </article>
+      <article class="flex min-h-[220px] flex-col rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/10">
+        <div class="text-3xl">{% lucide "map-pin", { "class": "size-7 text-blue-400" } %}</div>
+        <h3 class="mt-4 font-semibold text-white">Visit HQ</h3>
+        <p class="mt-2 text-sm text-slate-400">Belfast Office</p>
+        <a
+          href="https://www.openstreetmap.org/#map=12/54.5973/-5.9301"
+          class="mt-auto inline-block text-sm text-white underline-offset-4 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Open Maps →</a>
+      </article>
+      <article class="flex min-h-[220px] flex-col rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/10">
+        <div class="text-3xl">{% lucide "phone", { "class": "size-7 text-blue-400" } %}</div>
+        <h3 class="mt-4 font-semibold text-white">Call Us</h3>
+        <p class="mt-2 text-sm text-slate-400">Mon–Fri 8am–5pm</p>
+        <a href="tel:+442890000000" class="mt-auto text-sm text-white hover:underline">02890 000000</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/contact-global-globe.js" defer></script>

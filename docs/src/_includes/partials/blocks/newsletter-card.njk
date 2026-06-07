@@ -1,0 +1,44 @@
+<section class="block-newsletter-card relative overflow-hidden py-20" aria-labelledby="newsletter-card-title">
+  <div class="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-muted/30" aria-hidden="true"></div>
+  <div class="absolute -top-32 left-1/2 size-96 -translate-x-1/2 rounded-full bg-muted/30 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative px-4">
+    <div class="card mx-auto max-w-4xl rounded-3xl border-border/60 bg-card/80 p-8 shadow-xl backdrop-blur-md lg:p-10">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <span class="badge-secondary mb-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium">
+            {% lucide "sparkles", { "class": "size-3.5 mr-1" } %}
+            Members Area
+          </span>
+          <h2 id="newsletter-card-title" class="text-3xl font-bold leading-tight">Unlock exclusive content</h2>
+          <p class="mt-3 text-muted-foreground">
+            Join thousands of subscribers and gain access to premium resources, tutorials, product updates, and member-only perks.
+          </p>
+          <ul class="mt-6 space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="flex size-6 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">{% lucide "check", { "class": "size-3.5" } %}</span>
+              <span>Exclusive tutorials</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex size-6 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">{% lucide "check", { "class": "size-3.5" } %}</span>
+              <span>Product news and updates</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex size-6 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">{% lucide "check", { "class": "size-3.5" } %}</span>
+              <span>Member-only discounts</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="space-y-5" action="#" method="post">
+          <div role="group" class="field">
+            <label for="newsletter-card-email">Email Address</label>
+            <input id="newsletter-card-email" type="email" required placeholder="Enter your email" class="input w-full">
+          </div>
+          <button type="submit" class="btn w-full">Subscribe</button>
+          <p class="text-center text-xs text-muted-foreground">No spam. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

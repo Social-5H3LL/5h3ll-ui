@@ -1,0 +1,68 @@
+{#
+  Shared assets for blocks and layouts.
+  - social5h3ll_avatar: single brand/user avatar (sidebar popover)
+  - pravatar: multiple placeholder avatars — https://pravatar.cc/
+  - lobe_icon: software/AI brand marks — Lobe Icons CDN only
+  - lndev_logo: dev tools & tech brands not on Lobe — logos.lndev.me CDN only
+#}
+{% from "macros/integration_showcase.njk" import lobe_integration_icon_png_src %}
+{% from "macros/lobe_agent_icon.njk" import lobe_brand_image %}
+
+{% macro social5h3ll_avatar(size=32, class="rounded-lg shrink-0 object-cover") %}
+<img
+  src="https://avatars.githubusercontent.com/u/270819256?v=4"
+  alt="Social-5h3ll"
+  class="{{ class }}"
+  width="{{ size }}"
+  height="{{ size }}"
+  loading="lazy"
+  decoding="async"
+/>
+{% endmacro %}
+
+{% macro pravatar(size, img_id, class="rounded-full object-cover ring-2 ring-background shrink-0", alt="") %}
+<img
+  src="https://i.pravatar.cc/{{ size }}?img={{ img_id }}"
+  alt="{{ alt }}"
+  class="{{ class }}"
+  width="{{ size }}"
+  height="{{ size }}"
+  loading="lazy"
+  decoding="async"
+/>
+{% endmacro %}
+
+{% macro lobe_icon(slug, alt="", img_class="size-8 shrink-0 object-contain", width=32, height=32) %}
+{{ lobe_brand_image(
+  lobe_integration_icon_png_src(slug, "light"),
+  lobe_integration_icon_png_src(slug, "dark"),
+  alt,
+  img_class,
+  width,
+  height
+) }}
+{% endmacro %}
+
+{% macro brand_logo(class="size-10 object-cover", width=40, height=40) %}
+<img
+  src="/assets/favicon.svg"
+  alt="5H3LL-UI"
+  class="{{ class }}"
+  width="{{ width }}"
+  height="{{ height }}"
+  loading="lazy"
+  decoding="async"
+/>
+{% endmacro %}
+
+{% macro lndev_logo(slug, alt="", img_class="size-8 shrink-0 object-contain", width=32, height=32) %}
+<img
+  src="https://logos.lndev.me/logos/{{ slug }}.svg"
+  alt="{{ alt }}"
+  class="{{ img_class }}"
+  width="{{ width }}"
+  height="{{ height }}"
+  loading="lazy"
+  decoding="async"
+/>
+{% endmacro %}

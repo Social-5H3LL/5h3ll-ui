@@ -1,0 +1,32 @@
+[data-design-skin="claude"] {
+  color-scheme: light;
+  --background: #faf9f5;
+  --foreground: #141413;
+  --card: #ffffff;
+  --card-foreground: #141413;
+  --popover: #ffffff;
+  --popover-foreground: #141413;
+  --primary: #cc785c;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f0e8;
+  --secondary-foreground: #141413;
+  --muted: #efe9de;
+  --muted-foreground: #6c6a64;
+  --accent: #f5f0e8;
+  --accent-foreground: #141413;
+  --border: #e6dfd8;
+  --input: #e6dfd8;
+  --ring: #cc785c;
+  --radius: 0.5rem;
+  --font-sans: "Tiempos Text", Georgia, "Times New Roman", serif;
+  --font-heading: "Copernicus", Georgia, "Times New Roman", serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+[data-design-skin="claude"] h1,
+[data-design-skin="claude"] h2,
+[data-design-skin="claude"] .design-skin-demo-header h1 {
+  font-family: var(--font-heading);
+}

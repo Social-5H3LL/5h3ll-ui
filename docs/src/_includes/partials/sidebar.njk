@@ -1,0 +1,124 @@
+{% from "sidebar.njk" import sidebar %}
+{% from "popover.njk" import popover %}
+{% from "macros/github_icon.njk" import github_icon %}
+
+{% set footer %}
+{% set trigger %}
+<img src="https://avatars.githubusercontent.com/u/270819256?v=4" class="rounded-lg shrink-0 size-8 object-cover" alt="{{ site.author.name }}">
+<div class="grid flex-1 text-left text-sm leading-tight">
+  <span class="truncate font-medium">{{ site.title }}</span>
+  <span class="truncate text-xs text-muted-foreground">{{ site.author.x }}</span>
+</div>
+{% lucide "chevrons-up-down", { "class": "size-4 shrink-0 opacity-60" } %}
+{% endset %}
+{% call popover(
+  trigger=trigger,
+  main_attrs={"class": "w-full"},
+  trigger_attrs={
+    "class": "btn-ghost p-2 h-12 w-full flex items-center justify-start gap-2",
+    "data-keep-mobile-sidebar-open": ""
+  },
+  popover_attrs={
+    "data-side": "top",
+    "data-align": "start",
+    "class": "sidebar-footer-popover-panel"
+  }
+) %}
+<div class="sidebar-footer-popover">
+  <div class="sidebar-footer-popover-promo">
+    <div class="flex items-center gap-3">
+      <img
+        src="{{ site.logo.src if site.logo and site.logo.src else '/assets/favicon.svg' }}"
+        class="size-10 shrink-0 rounded-lg object-cover"
+        alt="{{ site.logo.alt if site.logo and site.logo.alt else site.title }}"
+        width="40"
+        height="40"
+      >
+      <div class="min-w-0 grid flex-1 gap-0.5">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="truncate font-semibold">{{ site.title }}</span>
+          <span class="badge-outline shrink-0">v{{ pkg.version }}</span>
+        </div>
+        <span class="truncate text-xs text-muted-foreground">shadcn/ui magic - no react</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-footer-popover-socials" aria-label="Follow 5H3LL-UI">
+    <a
+      href="https://github.com/social-5h3ll/5h3ll-ui"
+      class="sidebar-footer-promo-card"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {{ github_icon("size-4 shrink-0") }}
+      <span class="min-w-0 grid gap-0.5">
+        <span class="truncate text-sm font-medium">GitHub</span>
+        <span class="truncate text-xs text-muted-foreground">social-5h3ll/5h3ll-ui</span>
+      </span>
+      {% lucide "external-link", { "class": "ms-auto size-3.5 shrink-0 opacity-60" } %}
+    </a>
+    <a
+      href="https://x.com/social5h3ll"
+      class="sidebar-footer-promo-card"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="flex size-4 shrink-0 items-center justify-center text-xs font-bold" aria-hidden="true">X</span>
+      <span class="min-w-0 grid gap-0.5">
+        <span class="truncate text-sm font-medium">X</span>
+        <span class="truncate text-xs text-muted-foreground">{{ site.author.x }}</span>
+      </span>
+      {% lucide "external-link", { "class": "ms-auto size-3.5 shrink-0 opacity-60" } %}
+    </a>
+  </div>
+
+  <div class="sidebar-footer-popover-explore">
+    <p class="sidebar-footer-popover-explore-label">Explore</p>
+    <div class="sidebar-footer-promo-links">
+      <a href="/integrations/" class="sidebar-footer-promo-link">
+        {% lucide "plug", { "class": "size-4 shrink-0" } %}
+        <span>Agent integrations</span>
+      </a>
+      <a href="/layouts/overview/" class="sidebar-footer-promo-link">
+        {% lucide "layout-template", { "class": "size-4 shrink-0" } %}
+        <span>Layouts roadmap</span>
+      </a>
+      <a href="/integrations/llms/" class="sidebar-footer-promo-link">
+        {% lucide "file-text", { "class": "size-4 shrink-0" } %}
+        <span>llms.txt preview</span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endcall %}
+{% endset %}
+
+{% set header %}
+<a href="/" class="btn-ghost sidebar-brand p-2 h-12 w-full justify-start" data-sidebar-brand>
+  <div class="flex aspect-square size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+    <img
+      src="{{ site.logo.src if site.logo and site.logo.src else '/assets/favicon.svg' }}"
+      alt="{{ site.logo.alt if site.logo and site.logo.alt else site.title }}"
+      class="size-8 object-cover"
+      width="32"
+      height="32"
+    >
+  </div>
+  <div class="grid flex-1 text-left text-sm leading-tight">
+    <span class="truncate font-medium">{{ site.title }}</span>
+    <span class="truncate text-xs">v{{ pkg.version }}</span>
+  </div>
+</a>
+{% endset %}
+
+{% set docsMenu = docs.menu if docs and docs.menu else menu %}
+
+{{ sidebar(
+  id="sidebar",
+  label="Sidebar navigation",
+  header=header,
+  footer=footer,
+  content_attrs={ "class": "scrollbar" },
+  menu=docsMenu | sidebarMenu(collections)
+) }}

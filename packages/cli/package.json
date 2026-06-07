@@ -1,0 +1,44 @@
+{
+  "name": "@social-5h3ll/5h3ll-cli",
+  "version": "0.1.2",
+  "description": "Add 5H3LL-UI components to your project",
+  "author": "social5h3ll",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "5h3ll-ui": "./dist/index.js"
+  },
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "commander": "^13.1.0",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.6.0"
+  },
+  "keywords": [
+    "cli",
+    "components",
+    "component library",
+    "component system",
+    "ui",
+    "ui kit",
+    "shadcn",
+    "shadcn/ui",
+    "tailwind",
+    "tailwindcss",
+    "css",
+    "html",
+    "jinja",
+    "nunjucks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/social-5h3ll/5h3ll-ui.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/social-5h3ll/5h3ll-ui/issues"
+  },
+  "homepage": "https://ui.5h3ll.site/cli"
+}

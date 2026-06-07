@@ -1,0 +1,90 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section
+  class="block-share-config-modal flex min-h-[720px] items-center justify-center bg-muted/40 p-6"
+  data-share-config-modal
+  data-share-url="https://ui.5h3ll.site"
+  aria-labelledby="share-config-modal-title"
+>
+  <article class="card w-full max-w-6xl overflow-hidden rounded-[32px] shadow-2xl">
+    <header class="flex items-start justify-between gap-4 border-b border-border p-8">
+      <div>
+        <h2 id="share-config-modal-title" class="text-4xl font-bold tracking-tight">
+          Share Configuration Setting
+        </h2>
+        <p class="mt-2 text-muted-foreground">
+          Collaborate with members on this project.
+        </p>
+      </div>
+      <button type="button" class="btn-icon-ghost size-10 shrink-0 rounded-full" aria-label="Close dialog">
+        {% lucide "x", { "class": "size-5" } %}
+      </button>
+    </header>
+
+    <div class="grid lg:grid-cols-2">
+      <div class="border-b border-border p-8 lg:border-r lg:border-b-0">
+        <h3 class="text-2xl font-semibold">Invite People to Project</h3>
+
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <input
+            type="email"
+            class="input flex-1"
+            placeholder="Email address"
+            aria-label="Invite email address"
+          >
+          <button type="button" class="btn shrink-0 px-6">Invite</button>
+        </div>
+
+        <ul class="mt-8 space-y-4">
+          {% for member in shareConfigMembers %}
+            <li class="flex items-center justify-between gap-4">
+              <div class="flex min-w-0 items-center gap-3">
+                {{ pravatar(48, member.avatarId, "size-12 shrink-0 rounded-full object-cover", member.name) }}
+                <div class="min-w-0">
+                  <p class="font-medium">{{ member.name }}</p>
+                  <p class="truncate text-sm text-muted-foreground">{{ member.email }}</p>
+                </div>
+              </div>
+              <select class="select h-9 shrink-0" aria-label="Access level for {{ member.name }}">
+                <option {% if member.access == "Can edit" %}selected{% endif %}>Can edit</option>
+                <option {% if member.access == "Can view" %}selected{% endif %}>Can view</option>
+              </select>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="p-8">
+        <h3 class="text-2xl font-semibold">Share Your Website</h3>
+
+        <div class="mt-6 flex">
+          <input
+            type="text"
+            class="input flex-1 rounded-r-none"
+            value="ui.5h3ll.site"
+            aria-label="Website URL"
+            data-share-config-url
+            readonly
+          >
+          <button type="button" class="btn-outline shrink-0 rounded-l-none px-5" data-share-config-copy>
+            Copy link
+          </button>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center text-center">
+          <div class="rounded-3xl border border-border bg-card p-4">
+            <div class="block-share-config-modal-qrcode" data-share-config-qrcode aria-hidden="true"></div>
+          </div>
+          <p class="mt-6 text-2xl font-semibold">Scan to open the website.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="flex flex-col gap-4 border-t border-border p-6 sm:flex-row">
+      <button type="button" class="btn-outline flex-1 py-4">Back</button>
+      <button type="button" class="btn flex-1 py-4">Edit Configuration</button>
+    </footer>
+  </article>
+</section>
+
+<script src="/assets/js/share-config-modal.js" defer></script>

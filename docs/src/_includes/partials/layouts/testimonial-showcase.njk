@@ -1,0 +1,68 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section
+  class="layout-testimonial-showcase py-16"
+  aria-labelledby="testimonial-showcase-title"
+  data-testimonial-showcase
+  data-slides='{{ testimonials.slice(3, 6) | dump | safe }}'
+>
+  <div class="mx-auto max-w-6xl px-4 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div class="space-y-4">
+        <h2 id="testimonial-showcase-title" class="text-3xl font-bold leading-tight">
+          What Our Clients Are Saying
+        </h2>
+        <p class="leading-relaxed text-muted-foreground">
+          We take pride in delivering exceptional solutions that create real results. But don't just take our word for it.
+        </p>
+        <a href="#" class="btn-outline inline-flex items-center gap-2">
+          View All Testimonials
+          {% lucide "chevron-right", { "class": "size-4" } %}
+        </a>
+      </div>
+
+      <div>
+        <blockquote class="text-lg leading-relaxed md:text-xl" data-testimonial-showcase-quote>
+          “{{ testimonials[3].quote }}”
+        </blockquote>
+        <div class="mt-6 flex items-center gap-3">
+          <img
+            src="https://i.pravatar.cc/48?img={{ testimonials[3].avatarId }}"
+            alt="{{ testimonials[3].name }}"
+            width="48"
+            height="48"
+            class="size-12 rounded-full object-cover"
+            data-testimonial-showcase-avatar
+          >
+          <div>
+            <p class="font-medium" data-testimonial-showcase-name>{{ testimonials[3].name }}</p>
+            <p class="text-sm text-muted-foreground" data-testimonial-showcase-role>{{ testimonials[3].role }}</p>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-end gap-2">
+          <button type="button" class="btn-icon-outline size-10" data-testimonial-showcase-prev aria-label="Previous testimonial">
+            {% lucide "chevron-left", { "class": "size-5" } %}
+          </button>
+          <button type="button" class="btn-icon-outline size-10" data-testimonial-showcase-next aria-label="Next testimonial">
+            {% lucide "chevron-right", { "class": "size-5" } %}
+          </button>
+        </div>
+
+        <div class="mt-6 flex justify-end gap-2" role="tablist" aria-label="Testimonial slides">
+          {% for item in testimonials.slice(3, 6) %}
+            <button
+              type="button"
+              class="layout-testimonial-showcase-dot h-2 rounded-full bg-muted-foreground/40 transition-all {% if loop.first %}layout-testimonial-showcase-dot-active w-8{% else %}w-2{% endif %}"
+              data-testimonial-showcase-dot
+              aria-label="Show testimonial {{ loop.index }}"
+              {% if loop.first %}aria-current="true"{% endif %}
+            ></button>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/testimonial-showcase.js" defer></script>

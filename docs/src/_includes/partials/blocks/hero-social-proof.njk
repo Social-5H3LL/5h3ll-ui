@@ -1,0 +1,45 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section class="block-hero-social-proof mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8" aria-labelledby="hero-social-proof-title">
+  <div class="mx-auto max-w-2xl text-center">
+    <div class="hidden sm:mb-4 sm:flex sm:justify-center">
+      <a href="#" class="badge-secondary relative inline-flex items-center gap-2 rounded-full px-2 py-1 text-sm no-underline">
+        <span class="badge px-2 py-0.5 text-xs">New</span>
+        <span class="text-muted-foreground">Announcing our next round of funding.</span>
+      </a>
+    </div>
+
+    <h1 id="hero-social-proof-title" class="text-4xl font-bold leading-tight md:text-5xl">
+      Empower Your Creativity with Innovative Tools
+    </h1>
+
+    <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+      Unlock your potential with a suite of tools designed to transform your ideas into reality.
+      Create, build, and inspire with ease while achieving stunning results that truly stand out.
+    </p>
+
+    <div class="mt-10 flex items-center justify-center gap-x-3">
+      <a href="/installation/" class="btn">Get started</a>
+      <a href="/introduction/" class="btn-ghost inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold">
+        Learn more
+        {% lucide "arrow-right", { "class": "size-4" } %}
+      </a>
+    </div>
+
+    <div class="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row">
+      <span class="inline-flex -space-x-3">
+        {{ pravatar(32, 1, "size-8 rounded-full ring-2 ring-background", "Reviewer") }}
+        {{ pravatar(32, 2, "size-8 rounded-full ring-2 ring-background", "Reviewer") }}
+        {{ pravatar(32, 3, "size-8 rounded-full ring-2 ring-background", "Reviewer") }}
+        {{ pravatar(32, 4, "size-8 rounded-full ring-2 ring-background", "Reviewer") }}
+      </span>
+      <div class="space-y-1">
+        <div class="flex items-center gap-1">
+          <span class="text-amber-500" aria-hidden="true">★★★★★</span>
+          <span class="text-xs text-muted-foreground">5.0</span>
+        </div>
+        <div class="text-left text-xs text-muted-foreground">from 200+ reviews</div>
+      </div>
+    </div>
+  </div>
+</section>

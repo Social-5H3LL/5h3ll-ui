@@ -1,0 +1,26 @@
+<section class="layout-features-grid px-4 py-14 sm:py-20" aria-labelledby="features-grid-title">
+  <header class="mx-auto mb-12 max-w-3xl space-y-4 text-center">
+    <span class="badge-secondary inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
+      {% lucide "star", { "class": "size-3.5" } %}
+      Our Features
+    </span>
+    <h2 id="features-grid-title" class="text-3xl font-bold md:text-4xl">
+      Everything you need to ship faster.
+    </h2>
+    <p class="text-base text-muted-foreground md:text-lg">
+      From layout and branding to review and publish—all in one place.
+    </p>
+  </header>
+
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {% for feature in features %}
+      <article class="card p-6 shadow-xs">
+        <div class="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-muted text-primary">
+          {% lucide feature.icon, { "class": "size-6" } %}
+        </div>
+        <h3 class="mb-2 text-lg font-medium">{{ feature.title }}</h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">{{ feature.description }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>

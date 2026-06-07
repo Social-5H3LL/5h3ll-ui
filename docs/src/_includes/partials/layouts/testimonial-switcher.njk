@@ -1,0 +1,44 @@
+{% from "macros/block_assets.njk" import pravatar %}
+
+<section class="layout-testimonial-switcher w-full max-w-4xl py-16" aria-labelledby="testimonial-switcher-title">
+  <input type="radio" name="layout-testimonial-switcher" id="layout-testimonial-switcher-8" class="sr-only" checked>
+  <input type="radio" name="layout-testimonial-switcher" id="layout-testimonial-switcher-9" class="sr-only">
+  <input type="radio" name="layout-testimonial-switcher" id="layout-testimonial-switcher-10" class="sr-only">
+
+  <div class="text-center">
+    <span class="badge-secondary inline-flex rounded-full px-3 py-1.5 text-[11px] font-medium uppercase tracking-wider">
+      Testimonials
+    </span>
+    <h2 id="testimonial-switcher-title" class="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
+      What Clients Are Saying
+    </h2>
+    <p class="mx-auto mt-3 max-w-2xl text-base text-muted-foreground md:text-lg">
+      Read what they have to say about our collaborations and how design solutions helped them connect with their audiences.
+    </p>
+  </div>
+
+  <div class="mt-12 flex items-center justify-center gap-8">
+    <label for="layout-testimonial-switcher-8" class="layout-testimonial-switcher-label layout-testimonial-switcher-label-8 cursor-pointer rounded-full">
+      {{ pravatar(80, testimonials[8].avatarId, "layout-testimonial-switcher-img rounded-full object-cover", testimonials[8].name) }}
+    </label>
+    <label for="layout-testimonial-switcher-9" class="layout-testimonial-switcher-label layout-testimonial-switcher-label-9 cursor-pointer rounded-full">
+      {{ pravatar(64, testimonials[9].avatarId, "layout-testimonial-switcher-img rounded-full object-cover grayscale", testimonials[9].name) }}
+    </label>
+    <label for="layout-testimonial-switcher-10" class="layout-testimonial-switcher-label layout-testimonial-switcher-label-10 cursor-pointer rounded-full">
+      {{ pravatar(64, testimonials[10].avatarId, "layout-testimonial-switcher-img rounded-full object-cover grayscale", testimonials[10].name) }}
+    </label>
+  </div>
+
+  <div id="layout-testimonial-panel-8" class="layout-testimonial-switcher-panel card relative mx-auto mt-4 max-w-2xl rounded-xl px-6 py-8 shadow-lg md:px-10 md:py-10">
+    <blockquote class="text-base leading-relaxed md:text-lg">“{{ testimonials[8].quote }}”</blockquote>
+    <p class="mt-5 text-sm text-muted-foreground md:text-base">{{ testimonials[8].name }}, {{ testimonials[8].role }}</p>
+  </div>
+  <div id="layout-testimonial-panel-9" class="layout-testimonial-switcher-panel card relative mx-auto mt-4 max-w-2xl rounded-xl px-6 py-8 shadow-lg md:px-10 md:py-10">
+    <blockquote class="text-base leading-relaxed md:text-lg">“{{ testimonials[9].quote }}”</blockquote>
+    <p class="mt-5 text-sm text-muted-foreground md:text-base">{{ testimonials[9].name }}, {{ testimonials[9].role }}</p>
+  </div>
+  <div id="layout-testimonial-panel-10" class="layout-testimonial-switcher-panel card relative mx-auto mt-4 max-w-2xl rounded-xl px-6 py-8 shadow-lg md:px-10 md:py-10">
+    <blockquote class="text-base leading-relaxed md:text-lg">“{{ testimonials[10].quote }}”</blockquote>
+    <p class="mt-5 text-sm text-muted-foreground md:text-base">{{ testimonials[10].name }}, {{ testimonials[10].role }}</p>
+  </div>
+</section>
