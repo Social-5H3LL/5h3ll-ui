@@ -34,8 +34,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/social-5h3ll/5h3ll-ui.git",
-    "directory": "packages/cli"
+    "url": "git+https://github.com/Social-5H3LL/5h3ll-ui.git"
   },
   "bugs": {
     "url": "https://github.com/social-5h3ll/5h3ll-ui/issues"
