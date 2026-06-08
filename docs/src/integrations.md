@@ -27,6 +27,7 @@ toc:
 <div class="prose">
   <p>5H3LL-UI is built for <strong>human + agent</strong> collaboration. Point agents at <a href="/llms.txt" hx-boost="false"><code>/llms.txt</code></a> for site-wide context and load <a href="https://github.com/social-5h3ll/5h3ll-ui/blob/main/agents/SKILL.md"><code>agents/SKILL.md</code></a> as the portable user skill for markup and setup rules.</p>
   <p>Use this page to connect your agent stack — whether you work in an IDE, a hosted model API, or an orchestration platform.</p>
+  <p>Optional add-ons extend the library without bloating core CSS — e.g. <a href="/integrations/design-md/">DESIGN.md brand skins</a> and <a href="/integrations/sensory-ui/">Sensory UI</a> (semantic sounds inspired by <a href="https://www.sensory-ui.com/" target="_blank" rel="noopener noreferrer">sensory-ui</a>).</p>
 </div>
 
 <h2 id="agents"><a href="#agents">Supported agents</a></h2>

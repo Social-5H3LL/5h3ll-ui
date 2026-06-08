@@ -1,21 +1,31 @@
-# Build outputs
+# Dependencies
+node_modules/
+
+# Build output
 _site/
 _landing/
-node_modules/
 packages/cli/dist/
 packages/css/dist/
 
-# Logs
-npm-debug.log*
-
-# OS
-.DS_Store
-
-# Auth / credentials — NEVER commit these
-.npmrc
+# Local secrets (never commit auth tokens)
 .env
 .env.*
-*.pem
-*.key
-credentials*
-auth*
+.npmrc
+
+# OS / editor
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.cursor/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Release archives (generated locally; ship from home server)
+*.zip
+
+# Optional local preview artifacts
+*.log

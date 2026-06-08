@@ -147,7 +147,8 @@
             "integrations",
             "integrations/llms",
             "integrations/design-md",
-            "integrations/design-md/demos"
+            "integrations/design-md/demos",
+            "integrations/sensory-ui"
           ]
         }
       ]

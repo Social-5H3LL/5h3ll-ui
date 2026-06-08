@@ -1,4 +1,4 @@
-5H3LL-UI v0.1.3 — Public release archive
+5H3LL-UI v0.1.4 — Public release archive
 Generated: 2026-06-08
 
 Purpose
@@ -14,6 +14,7 @@ Included
 - scripts/          Build, CSS entrypoint generators, agent-rules sync
 - agents/           SKILL.md + design-md brand skins (cursor, claude, grok,
                     openai, openclaw, hermes) with tokens.css per skin
+- addons/           Optional add-ons (sensory-ui vanilla Web Audio spike)
 - screenshots/      README cover and theme preview images
 - README.md         Project overview and install
 - CHANGELOG.md      Release history
@@ -34,6 +35,7 @@ Excluded from public release archive (local preview / maintainer only)
 - landing/          Standalone marketing landing (npm run landing:dev)
 - dev/              Local workflow inbox and agent rules
 - .eleventy.landing.js  Landing site Eleventy config (see dev-release zip)
+- .npmrc            Local npm auth (never ship tokens)
 - node_modules/     Install via npm ci
 - _site/            Docs build output (npm run docs:build)
 - _landing/         Landing build output (npm run landing:build)
@@ -41,8 +43,8 @@ Excluded from public release archive (local preview / maintainer only)
 
 Restore
 -------
-  unzip 5h3ll-ui-v0.1.3-release-2026-06-08.zip -d 5h3ll-ui-v0.1.3
-  cd 5h3ll-ui-v0.1.3
+  unzip 5h3ll-ui-v0.1.4-release-2026-06-08.zip -d 5h3ll-ui-v0.1.4
+  cd 5h3ll-ui-v0.1.4
   npm ci
   npm run build
   npm run docs:build

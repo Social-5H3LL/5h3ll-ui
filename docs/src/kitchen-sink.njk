@@ -77,7 +77,12 @@ description: Live previews of every component, block, and layout in 5H3LL-UI.
   { label: "Community testimonials marquee", id: "community-testimonials-marquee" }
 ] %}
 
+{% set addons = [
+  { label: "Sensory UI", id: "sensory-ui" }
+] %}
+
 {% set kitchen_sink_sections = [
+  { label: "Add-ons", id: "kitchen-sink-addons", items: addons },
   { label: "Components", id: "kitchen-sink-components", items: components },
   { label: "Blocks", id: "kitchen-sink-blocks", items: blocks },
   { label: "Layouts", id: "kitchen-sink-layouts", items: layouts }
@@ -92,6 +97,16 @@ description: Live previews of every component, block, and layout in 5H3LL-UI.
 
   <div class="kitchen-sink-layout">
     <div class="kitchen-sink-main min-w-0">
+      <section id="kitchen-sink-addons" class="kitchen-sink-section" aria-labelledby="kitchen-sink-addons-heading">
+        <header class="kitchen-sink-section-header">
+          <h2 id="kitchen-sink-addons-heading" class="kitchen-sink-section-title">Add-ons</h2>
+          <p class="kitchen-sink-section-desc">Optional modules — install via future <code class="text-sm">npx @social-5h3ll/5h3ll-ui addon sensory-ui</code>.</p>
+        </header>
+        <div class="kitchen-sink-stack" data-kitchen-sink-group="addons">
+          {% include "partials/kitchen-sink/sensory-ui.njk" %}
+        </div>
+      </section>
+
       <section id="kitchen-sink-components" class="kitchen-sink-section" aria-labelledby="kitchen-sink-components-heading">
         <header class="kitchen-sink-section-header">
           <h2 id="kitchen-sink-components-heading" class="kitchen-sink-section-title">Components</h2>

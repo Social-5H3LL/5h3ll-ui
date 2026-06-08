@@ -1082,6 +1082,126 @@ html.dark .integrations-brand-image--dark {
   @apply text-sm font-medium;
 }
 
+.kitchen-sink-page [data-kitchen-sink-group='addons'] > section > div {
+  @apply min-w-0 p-4 md:p-6;
+}
+
+.sensory-ui-panel {
+  @apply overflow-hidden rounded-xl border border-border bg-card shadow-xs;
+}
+
+.sensory-ui-panel-body {
+  @apply p-4 md:p-6;
+}
+
+.sensory-ui-teaser {
+  @apply flex flex-col gap-4 rounded-xl border border-border/80 bg-muted/20 p-4 sm:flex-row sm:items-center sm:justify-between;
+}
+
+.sensory-ui-teaser-copy {
+  @apply m-0 max-w-2xl text-sm leading-relaxed text-muted-foreground;
+}
+
+.sensory-ui-teaser-copy a {
+  @apply text-foreground underline-offset-4 hover:underline;
+}
+
+.sensory-ui-demo {
+  @apply space-y-5 md:space-y-6;
+}
+
+.sensory-ui-intro {
+  @apply flex gap-4 rounded-xl border border-border/80 bg-muted/25 p-4 ring-1 ring-foreground/5;
+}
+
+.sensory-ui-intro-icon {
+  @apply flex size-10 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-background text-primary shadow-xs;
+}
+
+.sensory-ui-intro-copy {
+  @apply min-w-0 space-y-1;
+}
+
+.sensory-ui-intro-title {
+  @apply m-0 text-sm font-medium text-foreground;
+}
+
+.sensory-ui-intro-desc {
+  @apply m-0 text-sm leading-relaxed text-muted-foreground;
+}
+
+.sensory-ui-demo code {
+  @apply rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-[0.8em] text-foreground ring-1 ring-border/60;
+}
+
+.sensory-ui-intro-desc a {
+  @apply text-foreground underline-offset-4 hover:underline;
+}
+
+.sensory-ui-toolbar {
+  @apply flex flex-wrap items-center gap-2.5;
+}
+
+.sensory-ui-status {
+  @apply border-primary/25 bg-primary/5 text-foreground;
+}
+
+.sensory-ui-status--muted {
+  @apply border-border bg-muted/40 text-muted-foreground;
+}
+
+.sensory-ui-grid {
+  @apply grid gap-3 sm:grid-cols-2 xl:grid-cols-4;
+}
+
+.sensory-ui-role-card {
+  @apply flex min-h-[8.5rem] flex-col rounded-xl border border-border/80 bg-background p-4 shadow-xs ring-1 ring-foreground/5;
+}
+
+.sensory-ui-role-title {
+  @apply m-0 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground;
+}
+
+.sensory-ui-role-actions {
+  @apply mt-auto flex flex-wrap items-center gap-2 pt-4;
+}
+
+.sensory-ui-role-actions--stack {
+  @apply flex-col items-stretch gap-3;
+}
+
+.sensory-ui-role-actions--stack .label {
+  @apply rounded-lg border border-border/60 bg-muted/20 px-3 py-2;
+}
+
+.sensory-ui-attribution {
+  @apply rounded-lg border border-border/60 bg-muted/20 px-3 py-2 text-sm leading-relaxed text-muted-foreground;
+}
+
+.sensory-ui-attribution a {
+  @apply text-foreground underline-offset-4 hover:underline;
+}
+
+.sensory-ui-playground {
+  @apply space-y-5 rounded-xl border border-border/80 bg-muted/15 p-4 ring-1 ring-foreground/5 md:p-5;
+}
+
+.sensory-ui-playground-title {
+  @apply m-0 border-b border-border/60 pb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground;
+}
+
+.sensory-ui-playground-grid {
+  @apply grid gap-5 md:grid-cols-2 md:gap-6;
+}
+
+.sensory-ui-playground-block {
+  @apply min-w-0 space-y-3 rounded-lg border border-border/50 bg-background/40 p-3 md:p-4;
+}
+
+.sensory-ui-playground-label {
+  @apply m-0 text-xs font-medium text-muted-foreground;
+}
+
 .kitchen-sink-page [data-kitchen-sink-group='components'] > section > div {
   @apply min-w-0 p-4;
 }

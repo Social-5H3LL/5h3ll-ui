@@ -1,0 +1,237 @@
+{% from "tabs.njk" import tabs %}
+{% from "dialog.njk" import dialog %}
+
+<div class="sensory-ui-demo">
+  <div class="sensory-ui-intro">
+    <div class="sensory-ui-intro-icon" aria-hidden="true">
+      {% lucide "audio-lines", { "class": "size-5" } %}
+    </div>
+    <div class="sensory-ui-intro-copy">
+      <p class="sensory-ui-intro-title">Semantic UI sounds</p>
+      <p class="sensory-ui-intro-desc">
+        Procedural Web Audio via <code>data-sound</code> roles. Sounds unlock on your first click.
+        Honors <code>prefers-reduced-motion</code>.
+      </p>
+    </div>
+  </div>
+
+  <p class="sensory-ui-attribution">
+    Concept and role taxonomy from
+    <a href="https://www.sensory-ui.com/" target="_blank" rel="noopener noreferrer">sensory-ui</a>
+    by <a href="https://github.com/SatyamVyas04/sensory-ui" target="_blank" rel="noopener noreferrer">Satyam Vyas</a>.
+    5H3LL-UI ships a vanilla port in <code>addons/sensory-ui/</code>.
+  </p>
+
+  <div class="sensory-ui-toolbar">
+    <button type="button" class="btn-sm-outline" id="sensory-mute-toggle">Mute sounds</button>
+    <span class="badge-outline sensory-ui-status" id="sensory-status" aria-live="polite">Sounds enabled</span>
+  </div>
+
+  <div class="sensory-ui-grid">
+    <article class="sensory-ui-role-card">
+      <h3 class="sensory-ui-role-title">
+        {% lucide "mouse-pointer-click", { "class": "size-3.5 shrink-0 opacity-70" } %}
+        Interaction
+      </h3>
+      <div class="sensory-ui-role-actions">
+        <button type="button" class="btn-sm" data-sound="interaction.tap">Tap</button>
+        <button type="button" class="btn-sm-outline" data-sound="interaction.subtle">Subtle</button>
+        <button type="button" class="btn-sm-secondary" data-sound="interaction.confirm">Confirm</button>
+      </div>
+    </article>
+
+    <article class="sensory-ui-role-card">
+      <h3 class="sensory-ui-role-title">
+        {% lucide "toggle-left", { "class": "size-3.5 shrink-0 opacity-70" } %}
+        Toggle
+      </h3>
+      <div class="sensory-ui-role-actions sensory-ui-role-actions--stack">
+        <label class="label gap-2 text-sm">
+          <input type="checkbox" class="input" data-sound="interaction.toggle" checked />
+          Checkbox
+        </label>
+        <label class="label gap-2 text-sm">
+          <input type="checkbox" role="switch" class="input" data-sound="interaction.toggle" />
+          Switch
+        </label>
+      </div>
+    </article>
+
+    <article class="sensory-ui-role-card">
+      <h3 class="sensory-ui-role-title">
+        {% lucide "panel-top", { "class": "size-3.5 shrink-0 opacity-70" } %}
+        Overlay &amp; nav
+      </h3>
+      <div class="sensory-ui-role-actions">
+        <button type="button" class="btn-sm-outline" data-sound="overlay.open">Open</button>
+        <button type="button" class="btn-sm-outline" data-sound="overlay.close">Close</button>
+        <button type="button" class="btn-sm-outline" data-sound="navigation.tab">Tab</button>
+      </div>
+    </article>
+
+    <article class="sensory-ui-role-card">
+      <h3 class="sensory-ui-role-title">
+        {% lucide "bell", { "class": "size-3.5 shrink-0 opacity-70" } %}
+        Notification
+      </h3>
+      <div class="sensory-ui-role-actions">
+        <button
+          type="button"
+          class="btn-sm-outline"
+          data-sound="notification.success"
+          hx-trigger="click"
+          hx-select="unset"
+          hx-get="/fragments/toast/success"
+          hx-target="#toaster"
+          hx-swap="beforeend"
+        >
+          Success
+        </button>
+        <button
+          type="button"
+          class="btn-sm-outline"
+          data-sound="notification.error"
+          hx-trigger="click"
+          hx-select="unset"
+          hx-get="/fragments/toast/error"
+          hx-target="#toaster"
+          hx-swap="beforeend"
+        >
+          Error
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <div class="sensory-ui-playground">
+    <h3 class="sensory-ui-playground-title">5H3LL-UI components</h3>
+    <div class="sensory-ui-playground-grid">
+      <div class="sensory-ui-playground-block">
+        <p class="sensory-ui-playground-label">Tabs — <code>navigation.tab</code></p>
+        {{ tabs(
+          id="sensory-tabs-demo",
+          tabsets=[
+            {
+              tab: "Overview",
+              panel: "<p class=\"text-sm text-muted-foreground\">Tab panels use the same navigation role on each trigger.</p>",
+              tab_attrs: { "data-sound": "navigation.tab" }
+            },
+            {
+              tab: "Settings",
+              panel: "<p class=\"text-sm text-muted-foreground\">Try switching tabs to hear the nav sound.</p>",
+              tab_attrs: { "data-sound": "navigation.tab" }
+            },
+            {
+              tab: "Logs",
+              panel: "<p class=\"text-sm text-muted-foreground\">Works with 5H3LL-UI tab markup out of the box.</p>",
+              tab_attrs: { "data-sound": "navigation.tab" }
+            }
+          ]
+        ) }}
+      </div>
+
+      <div class="sensory-ui-playground-block">
+        <p class="sensory-ui-playground-label">Dialog — <code>overlay.open</code> / <code>overlay.close</code></p>
+        {% set sensory_dialog_footer %}
+          <button type="button" class="btn-outline" data-sound="overlay.close" onclick="document.getElementById('sensory-dialog-demo').close()">Cancel</button>
+          <button type="button" class="btn" data-sound="interaction.confirm" onclick="document.getElementById('sensory-dialog-demo').close()">Save</button>
+        {% endset %}
+        {{ dialog(
+          id="sensory-dialog-demo",
+          title="Sound check",
+          description="Open and close this dialog to hear overlay roles on real 5H3LL-UI dialog markup.",
+          trigger="Open dialog",
+          trigger_attrs={ "class": "btn-outline", "data-sound": "overlay.open" },
+          footer=sensory_dialog_footer
+        ) }}
+      </div>
+
+      <div class="sensory-ui-playground-block">
+        <p class="sensory-ui-playground-label">Pagination — <code>navigation.tab</code></p>
+        <nav role="navigation" aria-label="Sensory pagination demo" class="flex w-full justify-start">
+          <ul class="flex flex-row flex-wrap items-center gap-1">
+            <li>
+              <a href="#" class="btn-ghost" data-sound="navigation.tab">{% lucide "chevron-left" %} Prev</a>
+            </li>
+            <li><a href="#" class="btn-icon-ghost" data-sound="navigation.tab">1</a></li>
+            <li><a href="#" class="btn-icon-outline" aria-current="page" data-sound="navigation.tab">2</a></li>
+            <li><a href="#" class="btn-icon-ghost" data-sound="navigation.tab">3</a></li>
+            <li>
+              <a href="#" class="btn-ghost" data-sound="navigation.tab">Next {% lucide "chevron-right" %}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="sensory-ui-playground-block">
+        <p class="sensory-ui-playground-label">Slider — <code>interaction.subtle</code></p>
+        <label class="label gap-3 text-sm" for="sensory-range-demo">
+          Volume
+          <input type="range" class="input w-full" id="sensory-range-demo" min="0" max="100" value="60" data-sound="interaction.subtle" />
+        </label>
+      </div>
+
+      <div class="sensory-ui-playground-block">
+        <p class="sensory-ui-playground-label">Toast — <code>notification.success</code> / <code>notification.error</code></p>
+        <div class="flex flex-wrap gap-2">
+          <button
+            type="button"
+            class="btn-sm-outline"
+            data-sound="notification.success"
+            hx-trigger="click"
+            hx-select="unset"
+            hx-get="/fragments/toast/success"
+            hx-target="#toaster"
+            hx-swap="beforeend"
+          >
+            Show success toast
+          </button>
+          <button
+            type="button"
+            class="btn-sm-outline"
+            data-sound="notification.error"
+            hx-trigger="click"
+            hx-select="unset"
+            hx-get="/fragments/toast/error"
+            hx-target="#toaster"
+            hx-swap="beforeend"
+          >
+            Show error toast
+          </button>
+        </div>
+      </div>
+
+      <div class="sensory-ui-playground-block">
+        <p class="sensory-ui-playground-label">Destructive — <code>interaction.confirm</code></p>
+        <button type="button" class="btn-destructive btn-sm" data-sound="interaction.confirm">Delete project</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const toggle = document.getElementById('sensory-mute-toggle');
+    const status = document.getElementById('sensory-status');
+    const KEY = '5h3ll-sensory';
+
+    const sync = () => {
+      let off = false;
+      try { off = localStorage.getItem(KEY) === 'off'; } catch (_) {}
+      if (toggle) toggle.textContent = off ? 'Unmute sounds' : 'Mute sounds';
+      if (status) {
+        status.textContent = off ? 'Sounds muted' : 'Sounds enabled';
+        status.classList.toggle('sensory-ui-status--muted', off);
+      }
+    };
+
+    toggle?.addEventListener('click', () => {
+      let off = false;
+      try { off = localStorage.getItem(KEY) === 'off'; } catch (_) {}
+      try { localStorage.setItem(KEY, off ? 'on' : 'off'); } catch (_) {}
+      sync();
+    });
+
+    sync();
+  })();
+</script>

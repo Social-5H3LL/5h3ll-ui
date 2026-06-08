@@ -28,6 +28,7 @@ function tailwindArgs(input, output) {
 async function copyDocsAssets() {
   await mkdir('./docs/src/assets/js', { recursive: true });
   await cp('./node_modules/htmx.org/dist/htmx.min.js', './docs/src/assets/js/htmx.min.js');
+  await cp('./addons/sensory-ui/sensory.js', './docs/src/assets/js/sensory.js');
 
   await mkdir('./docs/src/assets/fonts/geist', { recursive: true });
   for (const file of fontFiles) {

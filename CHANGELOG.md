@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.4] — 2026-06-08
+
+### Added
+
+- **Sensory UI add-on:** vanilla Web Audio spike in `addons/sensory-ui/` — procedural sounds via `data-sound` roles (`interaction.*`, `overlay.*`, `navigation.tab`, `notification.*`)
+- **Kitchen sink Sensory UI panel:** role cards, 5H3LL-UI component playground (tabs, dialog, pagination, slider, destructive/link buttons), mute toggle, attribution to Satyam Vyas / [sensory-ui.com](https://www.sensory-ui.com/)
+- **Integrations docs:** `/integrations/sensory-ui/` — install, usage, roles, accessibility, attribution; sidebar nav entry under Integrations
+
+### Changed
+
+- **Kitchen sink add-ons layout:** card body uses padding (not margin) so content insets correctly inside `overflow-hidden` preview cards
+- **Sensory UI demo:** moved to `/integrations/sensory-ui/#demo`; kitchen sink shows teaser link; notification buttons wire HTMX toasts; pagination uses `btn-icon-outline` for current page
+- **`.gitignore`:** standard ignore rules for build output, secrets (`.npmrc`), editor cruft, and local release zips
+
 ## [0.1.3] — 2026-06-08
 
 ### Added
@@ -132,4 +146,3 @@ To keep the previous `.form` wrapper behavior, define it in your own Tailwind CS
 ## Unreleased
 
 _No changes yet._
-
