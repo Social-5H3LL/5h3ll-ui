@@ -1,8 +1,10 @@
 ---
 layout: layouts/layout.njk
 title: Kitchen Sink
-description: A collection of all the components available in 5H3LL-UI.
+description: Live previews of every component, block, and layout in 5H3LL-UI.
 ---
+{% from "macros/kitchen_sink_nav.njk" import kitchen_sink_toc %}
+
 {% set components = [
   { label: "Accordion", id: "accordion" },
   { label: "Alert", id: "alert" },
@@ -34,69 +36,101 @@ description: A collection of all the components available in 5H3LL-UI.
   { label: "Typography", id: "typography" }
 ] %}
 
-<div class="flex gap-x-10 justify-center">
-  <div>
-    <header class="space-y-2 mb-8">
-      <h1 class="text-3xl font-semibold tracking-tight">{{ title }}</h1>
-      <p class="text-muted-foreground">{{ description }}</p>
-    </header>
-    <div class="grid gap-4 flex-1">
-      {% for component in components %}
-        {% include "partials/kitchen-sink/" ~ component.id ~ ".njk" %}
-      {% endfor %}
+{% set blocks = [
+  { label: "AI chat panel", id: "ai-chat-panel" },
+  { label: "Stats row", id: "stats-row" },
+  { label: "Sign-in form", id: "sign-in-form" },
+  { label: "CTA banner", id: "cta-banner" },
+  { label: "Integrations marquee (vertical)", id: "integrations-marquee-vertical" },
+  { label: "Integrations stacked icons", id: "integrations-stacked-icons" },
+  { label: "Integrations grid", id: "integrations-grid" },
+  { label: "Integrations marquee (horizontal)", id: "integrations-marquee-horizontal" },
+  { label: "Hero social proof", id: "hero-social-proof" },
+  { label: "Hero creative tools", id: "hero-creative-tools" },
+  { label: "CTA grid background", id: "cta-grid-background" },
+  { label: "CTA learning split", id: "cta-learning-split" },
+  { label: "Newsletter inline", id: "newsletter-inline" },
+  { label: "Newsletter card", id: "newsletter-card" },
+  { label: "Newsletter split", id: "newsletter-split" },
+  { label: "Contact simple", id: "contact-simple" },
+  { label: "Contact split", id: "contact-split" },
+  { label: "Contact card", id: "contact-card" },
+  { label: "Contact global", id: "contact-global" },
+  { label: "Share config modal", id: "share-config-modal" }
+] %}
+
+{% set layouts = [
+  { label: "Automation hero orbit", id: "automation-hero-orbit" },
+  { label: "Features grid", id: "features-grid" },
+  { label: "Features tabs", id: "features-tabs" },
+  { label: "Footer premium", id: "footer-premium" },
+  { label: "Footer columns", id: "footer-columns" },
+  { label: "Footer minimal", id: "footer-minimal" },
+  { label: "Footer serif", id: "footer-serif" },
+  { label: "Footer CTA band", id: "footer-cta-band" },
+  { label: "Footer compact", id: "footer-compact" },
+  { label: "Testimonial carousel", id: "testimonial-carousel" },
+  { label: "Testimonial switcher", id: "testimonial-switcher" },
+  { label: "Testimonial showcase", id: "testimonial-showcase" },
+  { label: "Testimonials wall", id: "testimonials-wall" },
+  { label: "Community testimonials", id: "community-testimonials" },
+  { label: "Community testimonials marquee", id: "community-testimonials-marquee" }
+] %}
+
+{% set kitchen_sink_sections = [
+  { label: "Components", id: "kitchen-sink-components", items: components },
+  { label: "Blocks", id: "kitchen-sink-blocks", items: blocks },
+  { label: "Layouts", id: "kitchen-sink-layouts", items: layouts }
+] %}
+
+<div class="kitchen-sink-page">
+  <header class="kitchen-sink-hero">
+    <p class="kitchen-sink-eyebrow">Examples</p>
+    <h1 class="kitchen-sink-title">{{ title }}</h1>
+    <p class="kitchen-sink-description">{{ description }}</p>
+  </header>
+
+  <div class="kitchen-sink-layout">
+    <div class="kitchen-sink-main min-w-0">
+      <section id="kitchen-sink-components" class="kitchen-sink-section" aria-labelledby="kitchen-sink-components-heading">
+        <header class="kitchen-sink-section-header">
+          <h2 id="kitchen-sink-components-heading" class="kitchen-sink-section-title">Components</h2>
+          <p class="kitchen-sink-section-desc">Interactive primitives — buttons, inputs, dialogs, and more.</p>
+        </header>
+        <div class="kitchen-sink-stack" data-kitchen-sink-group="components">
+          {% for component in components %}
+            {% include "partials/kitchen-sink/" ~ component.id ~ ".njk" %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="kitchen-sink-blocks" class="kitchen-sink-section" aria-labelledby="kitchen-sink-blocks-heading">
+        <header class="kitchen-sink-section-header">
+          <h2 id="kitchen-sink-blocks-heading" class="kitchen-sink-section-title">Blocks</h2>
+          <p class="kitchen-sink-section-desc">Composed page sections built from elements and components.</p>
+        </header>
+        <div class="kitchen-sink-stack" data-kitchen-sink-group="blocks">
+          {% for block in blocks %}
+            {% include "partials/kitchen-sink/" ~ block.id ~ ".njk" %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="kitchen-sink-layouts" class="kitchen-sink-section" aria-labelledby="kitchen-sink-layouts-heading">
+        <header class="kitchen-sink-section-header">
+          <h2 id="kitchen-sink-layouts-heading" class="kitchen-sink-section-title">Layouts</h2>
+          <p class="kitchen-sink-section-desc">Full-width marketing shells — scroll horizontally inside each preview when needed.</p>
+        </header>
+        <div class="kitchen-sink-stack" data-kitchen-sink-group="layouts">
+          {% for layout in layouts %}
+            {% include "partials/kitchen-sink/" ~ layout.id ~ ".njk" %}
+          {% endfor %}
+        </div>
+      </section>
     </div>
 
-    <header class="mb-8 mt-12 space-y-2">
-      <h2 class="text-2xl font-semibold tracking-tight">Blocks</h2>
-      <p class="text-muted-foreground">Composed page sections built from elements and components.</p>
-    </header>
-    <div class="grid gap-4">
-      {% include "partials/kitchen-sink/ai-chat-panel.njk" %}
-      {% include "partials/kitchen-sink/stats-row.njk" %}
-      {% include "partials/kitchen-sink/sign-in-form.njk" %}
-      {% include "partials/kitchen-sink/cta-banner.njk" %}
-      {% include "partials/kitchen-sink/integrations-marquee-vertical.njk" %}
-      {% include "partials/kitchen-sink/integrations-stacked-icons.njk" %}
-      {% include "partials/kitchen-sink/integrations-grid.njk" %}
-      {% include "partials/kitchen-sink/integrations-marquee-horizontal.njk" %}
-      {% include "partials/kitchen-sink/hero-social-proof.njk" %}
-      {% include "partials/kitchen-sink/hero-creative-tools.njk" %}
-      {% include "partials/kitchen-sink/cta-grid-background.njk" %}
-      {% include "partials/kitchen-sink/cta-learning-split.njk" %}
-      {% include "partials/kitchen-sink/newsletter-inline.njk" %}
-      {% include "partials/kitchen-sink/newsletter-card.njk" %}
-      {% include "partials/kitchen-sink/newsletter-split.njk" %}
-      {% include "partials/kitchen-sink/contact-simple.njk" %}
-      {% include "partials/kitchen-sink/contact-split.njk" %}
-      {% include "partials/kitchen-sink/contact-card.njk" %}
-      {% include "partials/kitchen-sink/contact-global.njk" %}
-      {% include "partials/kitchen-sink/share-config-modal.njk" %}
-    </div>
-
-    <header class="mb-8 mt-12 space-y-2">
-      <h2 class="text-2xl font-semibold tracking-tight">Layouts</h2>
-      <p class="text-muted-foreground">Full-page shells and marketing layout patterns.</p>
-    </header>
-    <div class="grid gap-4">
-      {% include "partials/kitchen-sink/automation-hero-orbit.njk" %}
-      {% include "partials/kitchen-sink/features-grid.njk" %}
-      {% include "partials/kitchen-sink/features-tabs.njk" %}
-      {% include "partials/kitchen-sink/footer-premium.njk" %}
-      {% include "partials/kitchen-sink/footer-columns.njk" %}
-      {% include "partials/kitchen-sink/footer-minimal.njk" %}
-      {% include "partials/kitchen-sink/footer-serif.njk" %}
-      {% include "partials/kitchen-sink/footer-cta-band.njk" %}
-      {% include "partials/kitchen-sink/footer-compact.njk" %}
-      {% include "partials/kitchen-sink/testimonial-carousel.njk" %}
-      {% include "partials/kitchen-sink/testimonial-switcher.njk" %}
-      {% include "partials/kitchen-sink/testimonial-showcase.njk" %}
-      {% include "partials/kitchen-sink/testimonials-wall.njk" %}
-      {% include "partials/kitchen-sink/community-testimonials.njk" %}
-      {% include "partials/kitchen-sink/community-testimonials-marquee.njk" %}
-    </div>
-  </div>
-  <div class="hidden text-sm xl:block w-full max-w-[200px]">
-    {% from "macros/toc.njk" import toc_nav %}
-    {{ toc_nav(components) }}
+    <aside class="kitchen-sink-aside" aria-label="On this page">
+      {{ kitchen_sink_toc(kitchen_sink_sections) }}
+    </aside>
   </div>
 </div>

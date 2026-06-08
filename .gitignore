@@ -1,8 +1,3 @@
-# Keep these files
-!.gitignore
-!.gitattributes
-!.eleventy.js
-
 # Build outputs
 _site/
 _landing/
@@ -13,5 +8,14 @@ packages/css/dist/
 # Logs
 npm-debug.log*
 
-# Secrets (local only)
+# OS
+.DS_Store
+
+# Auth / credentials — NEVER commit these
 .npmrc
+.env
+.env.*
+*.pem
+*.key
+credentials*
+auth*

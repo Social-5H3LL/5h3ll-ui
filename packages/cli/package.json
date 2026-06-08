@@ -1,6 +1,6 @@
 {
   "name": "@social-5h3ll/5h3ll-cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Add 5H3LL-UI components to your project",
   "author": "social5h3ll",
   "license": "MIT",
@@ -34,7 +34,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Social-5H3LL/5h3ll-ui.git"
+    "url": "git+https://github.com/social-5h3ll/5h3ll-ui.git",
+    "directory": "packages/cli"
   },
   "bugs": {
     "url": "https://github.com/social-5h3ll/5h3ll-ui/issues"

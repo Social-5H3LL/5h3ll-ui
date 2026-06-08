@@ -1,50 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {# Dark mode #}
+  {# Theme boot — must run before first paint to avoid dark-mode CLS #}
+  <style id="ui5h3ll-theme-guard">
+    html { color-scheme: light dark; }
+    html, body {
+      margin: 0;
+      background-color: #fff;
+      color: #252525;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    html.dark, html.dark body {
+      background-color: #252525;
+      color: #fafafa;
+    }
+    #content.htmx-swapping {
+      contain: layout style;
+      overflow-anchor: none;
+    }
+  </style>
   <script>
     (() => {
-      try {
-        const stored = localStorage.getItem('themeMode');
-        if (stored ? stored === 'dark'
-                   : matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.classList.add('dark');
-        }
-      } catch (_) {}
+      const root = document.documentElement;
 
-      const apply = dark => {
-        document.documentElement.classList.toggle('dark', dark);
+      const applyDark = (dark) => {
+        root.classList.toggle('dark', dark);
+        root.style.colorScheme = dark ? 'dark' : 'light';
         try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
       };
 
-      document.addEventListener('ui5h3ll:theme', (event) => {
-        const mode = event.detail?.mode;
-        apply(mode === 'dark' ? true
-             : mode === 'light' ? false
-             : !document.documentElement.classList.contains('dark'));
-      });
-    })();
-  </script>
-  {# Theme variant #}
-  <script>
-    (function() {
+      try {
+        const stored = localStorage.getItem('themeMode');
+        applyDark(stored ? stored === 'dark'
+                         : matchMedia('(prefers-color-scheme: dark)').matches);
+      } catch (_) {
+        applyDark(false);
+      }
+
       try {
         const storedTheme = localStorage.getItem('themeVariant');
-        if (storedTheme) document.documentElement.classList.add(`theme-${storedTheme}`);
-      } catch (event) {
-        console.error('Could not apply theme variant from localStorage', event);
-      }
-    })();
-  </script>
-  {# Style variant #}
-  <script>
-    (function() {
+        if (storedTheme) root.classList.add(`theme-${storedTheme}`);
+      } catch (_) {}
+
+      let styleVariant = 'nova';
       try {
-        const storedStyle = localStorage.getItem('styleVariant') || 'nova';
-        document.documentElement.dataset.styleVariant = storedStyle;
-      } catch (event) {
-        console.error('Could not apply style variant from localStorage', event);
-      }
+        styleVariant = localStorage.getItem('styleVariant') || 'nova';
+      } catch (_) {}
+      root.dataset.styleVariant = styleVariant;
+
+      const styleLink = document.createElement('link');
+      styleLink.rel = 'stylesheet';
+      styleLink.id = 'style-variant-stylesheet';
+      styleLink.href = `/assets/styles-${styleVariant}.css`;
+      document.head.appendChild(styleLink);
+
+      document.addEventListener('ui5h3ll:theme', (event) => {
+        const mode = event.detail?.mode;
+        applyDark(mode === 'dark' ? true
+                  : mode === 'light' ? false
+                  : !root.classList.contains('dark'));
+      });
     })();
   </script>
   {# Meta #}
@@ -77,15 +92,10 @@
   <meta name="twitter:description" content="{{ meta_description }}">
   <meta name="twitter:image" content="{{ site.url }}/assets/social-screenshot.png">
   <meta name="twitter:creator" content="{{ site.author.x }}">
-  {# CSS #}
-  <link rel="stylesheet" id="style-variant-stylesheet" href="/assets/styles-nova.css">
-  <script>
-    (() => {
-      const styleLink = document.getElementById('style-variant-stylesheet');
-      const styleVariant = document.documentElement.dataset.styleVariant || 'nova';
-      styleLink.href = `/assets/styles-${styleVariant}.css`;
-    })();
-  </script>
+  {# CSS — stylesheet href is injected by theme boot script above #}
+  <link rel="preload" href="/assets/fonts/geist/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist/geist-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist/geist-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   {# JS #}
   <script src="/assets/js/ui5h3ll.js?v={{ pkg.version }}" defer></script>
   <script src="/assets/js/command.js?v={{ pkg.version }}" defer></script>
@@ -99,7 +109,6 @@
   <script src="/assets/js/toast.js?v={{ pkg.version }}" defer></script>
   {# HTMX #}
   <script src="/assets/js/htmx.min.js" defer></script>
-  <script src="/assets/js/lobe-brand-theme.js" defer></script>
   {# Highlight.js #}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/django.min.js"></script>
@@ -179,15 +188,28 @@
       window.location.assign(event.detail.pathInfo.requestPath);
     });
 
-    document.addEventListener('htmx:afterSwap', () => {
-      if (window.ui5h3ll) window.ui5h3ll.initAll();
-      syncSidebarNav();
+    document.addEventListener('htmx:beforeSwap', (event) => {
+      const target = event.detail.target;
+      if (!target || target.id !== 'content') return;
+      target.classList.add('htmx-swapping');
+      target.style.minHeight = `${target.offsetHeight}px`;
     });
 
-    document.addEventListener('htmx:historyRestore', () => {
+    const afterContentSwap = () => {
       if (window.ui5h3ll) window.ui5h3ll.initAll();
       syncSidebarNav();
+    };
+
+    document.addEventListener('htmx:afterSwap', afterContentSwap);
+
+    document.addEventListener('htmx:afterSettle', (event) => {
+      const target = event.detail.target;
+      if (!target || target.id !== 'content') return;
+      target.classList.remove('htmx-swapping');
+      target.style.minHeight = '';
     });
+
+    document.addEventListener('htmx:historyRestore', afterContentSwap);
   </script>
   {% if head %}{{ head | safe }}{% endif %}
 </head>

@@ -17,6 +17,19 @@
   @apply visible opacity-100;
 }
 
+/* Main sits beside fixed sidebar — never width:100% + margin-left */
+.docs-main {
+  @apply max-w-full;
+}
+
+.docs-site-header {
+  @apply w-full min-w-0;
+}
+
+.docs-header-bar {
+  @apply w-full max-w-full;
+}
+
 .docs-header-brand-mirror:not([hidden]) {
   @apply flex max-w-[11rem] sm:max-w-[13rem];
 }
@@ -317,8 +330,24 @@
   @apply inline-flex min-w-0 flex-1 items-center justify-start gap-2.5 rounded-lg text-foreground no-underline transition-opacity hover:opacity-80 sm:gap-3;
 }
 
+.integrations-brand-media {
+  @apply relative inline-flex shrink-0 items-center justify-center;
+}
+
 .integrations-brand-image {
-  @apply block max-w-full shrink-0 object-contain;
+  @apply block max-h-full max-w-full shrink-0 object-contain;
+}
+
+.integrations-brand-image--dark {
+  @apply hidden;
+}
+
+html.dark .integrations-brand-image--light {
+  @apply hidden;
+}
+
+html.dark .integrations-brand-image--dark {
+  @apply block;
 }
 
 .integrations-agent-icon {
@@ -990,4 +1019,118 @@
 
 .preview:has(.layout-footer-premium) > div {
   @apply w-full min-w-0 max-w-none overflow-visible px-0;
+}
+
+/* Kitchen sink — examples gallery */
+.kitchen-sink-page {
+  @apply mx-auto w-full min-w-0 max-w-[88rem];
+}
+
+.kitchen-sink-hero {
+  @apply mb-10 space-y-3 border-b border-border pb-8;
+}
+
+.kitchen-sink-eyebrow {
+  @apply text-xs font-semibold uppercase tracking-widest text-muted-foreground;
+}
+
+.kitchen-sink-title {
+  @apply text-3xl font-semibold tracking-tight sm:text-4xl;
+}
+
+.kitchen-sink-description {
+  @apply max-w-2xl text-base text-muted-foreground sm:text-lg;
+}
+
+.kitchen-sink-layout {
+  @apply grid grid-cols-1 items-start gap-10 xl:grid-cols-[minmax(0,1fr)_13rem];
+}
+
+.kitchen-sink-section {
+  @apply scroll-mt-24 space-y-5;
+}
+
+.kitchen-sink-section + .kitchen-sink-section {
+  @apply mt-16 border-t border-border pt-16;
+}
+
+.kitchen-sink-section-header {
+  @apply space-y-1;
+}
+
+.kitchen-sink-section-title {
+  @apply text-2xl font-semibold tracking-tight;
+}
+
+.kitchen-sink-section-desc {
+  @apply text-sm text-muted-foreground sm:text-base;
+}
+
+.kitchen-sink-stack {
+  @apply grid min-w-0 gap-5;
+}
+
+.kitchen-sink-page .kitchen-sink-stack > section {
+  @apply w-full min-w-0 scroll-mt-24 overflow-hidden rounded-xl border bg-card shadow-xs;
+}
+
+.kitchen-sink-page .kitchen-sink-stack > section > header {
+  @apply flex items-center justify-between border-b border-border bg-muted/30 px-4 py-3;
+}
+
+.kitchen-sink-page .kitchen-sink-stack > section > header h2 {
+  @apply text-sm font-medium;
+}
+
+.kitchen-sink-page [data-kitchen-sink-group='components'] > section > div {
+  @apply min-w-0 p-4;
+}
+
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div {
+  @apply min-w-0 p-4;
+}
+
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div.overflow-hidden,
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div.p-0 {
+  @apply p-0;
+}
+
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div:has(.block-contact-global),
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div:has(.block-contact-simple),
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div:has([class*='block-integrations-marquee']),
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div:has(.block-hero-creative-tools),
+.kitchen-sink-page [data-kitchen-sink-group='blocks'] > section > div:has(.block-cta-grid-background) {
+  @apply overflow-x-auto p-0;
+}
+
+.kitchen-sink-page [data-kitchen-sink-group='layouts'] > section > div {
+  @apply min-w-0 overflow-x-auto p-0;
+}
+
+.kitchen-sink-page [data-kitchen-sink-group='layouts'] .layout-automation-hero-orbit-stage {
+  @apply min-h-[28rem];
+}
+
+.kitchen-sink-aside {
+  @apply hidden min-w-0 xl:block;
+}
+
+.kitchen-sink-nav {
+  @apply sticky top-24 max-h-[calc(100vh-7rem)] space-y-5 overflow-y-auto text-sm;
+}
+
+.kitchen-sink-nav-group + .kitchen-sink-nav-group {
+  @apply border-t border-border pt-4;
+}
+
+.kitchen-sink-nav-heading {
+  @apply block font-medium text-foreground no-underline transition-colors hover:text-primary;
+}
+
+.kitchen-sink-nav-list {
+  @apply m-0 mt-2 list-none space-y-1 border-l border-border pl-3;
+}
+
+.kitchen-sink-nav-list a {
+  @apply block py-0.5 text-muted-foreground no-underline transition-colors hover:text-foreground;
 }

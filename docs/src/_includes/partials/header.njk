@@ -19,7 +19,7 @@
   });
 </script>
 
-<div class="flex h-14 w-full items-center gap-2 px-4">
+<div class="docs-header-bar flex h-14 min-w-0 items-center gap-2 px-4">
   <div class="docs-header-start flex min-w-0 items-center gap-2">
     <button
       type="button"
@@ -113,8 +113,10 @@
     onclick="document.dispatchEvent(new CustomEvent('ui5h3ll:theme'))"
     class="btn-icon-outline size-8"
   >
-    <span class="hidden dark:block">{% lucide "sun" %}</span>
-    <span class="block dark:hidden">{% lucide "moon" %}</span>
+    <span class="relative inline-flex size-4 shrink-0 items-center justify-center" aria-hidden="true">
+      <span class="absolute inset-0 hidden items-center justify-center dark:inline-flex">{% lucide "sun" %}</span>
+      <span class="absolute inset-0 inline-flex items-center justify-center dark:hidden">{% lucide "moon" %}</span>
+    </span>
   </button>
   <a
     href="https://github.com/social-5h3ll/5h3ll-ui"

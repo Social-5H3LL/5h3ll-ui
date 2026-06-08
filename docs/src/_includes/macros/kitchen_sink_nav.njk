@@ -1,0 +1,18 @@
+{% macro kitchen_sink_toc(sections) %}
+<nav class="kitchen-sink-nav" aria-label="Kitchen sink sections">
+  {% for section in sections %}
+    <div class="kitchen-sink-nav-group">
+      <a href="#{{ section.id }}" class="kitchen-sink-nav-heading">{{ section.label }}</a>
+      {% if section.items and section.items.length %}
+        <ul class="kitchen-sink-nav-list">
+          {% for item in section.items %}
+            <li>
+              <a href="#{{ item.id }}">{{ item.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endfor %}
+</nav>
+{% endmacro %}

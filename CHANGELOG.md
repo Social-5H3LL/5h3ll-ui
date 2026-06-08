@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.1.3] — 2026-06-08
+
+### Added
+
+- **Kitchen sink gallery:** rebuilt `/kitchen-sink/` as a structured examples page — Components, Blocks, and Layouts sections with sticky on-page nav (`kitchen_sink_nav.njk`)
+
+### Changed
+
+- **Docs theme boot:** inline light/dark paint guard before first paint; consolidated `themeMode` / style-variant script; single stylesheet injection (no nova → swap flash)
+- **Docs HTMX navigation:** swaps only `#content` page body — sticky header and footer stay mounted during in-app nav
+- **Lobe brand images:** light/dark PNGs stacked in markup; CSS toggles visibility (removed `lobe-brand-theme.js` src swapping)
+- **Geist fonts:** `font-display: optional` and preloads for 400/500/600 weights to reduce metric swap CLS
+- **Dark mode toggle:** fixed-size icon stack in docs header (no layout shift on theme change)
+
+### Fixed
+
+- **CLS (docs site):** dark-mode FOUC where `html.dark > body` painted light before CSS loaded — attributed as Poor CLS in Core Web Vitals
+- **Kitchen sink layout:** example content no longer renders behind the fixed sidebar; block/layout previews use horizontal scroll containers inside preview cards
+- **Docs shell overflow:** removed `w-full` on `docs-main` alongside sidebar `margin-left` — fixes full-page horizontal scrollbar when sidebar is open
+- **HTMX content swap:** `contain: layout` only during `.htmx-swapping`; min-height pinning prevents jumpy reflow mid-navigation
+
 ## [0.1.2] — 2026-06-07
 
 ### Added

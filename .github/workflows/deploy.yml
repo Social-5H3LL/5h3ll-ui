@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Workers + Publish to npm
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -29,24 +29,3 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npx wrangler deploy --name 5h3ll-ui-docs
-
-      - name: Build packages
-        run: npm run build
-
-      - name: Publish @social-5h3ll/5h3ll-ui to npm
-        run: |
-          git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
-          git config --global url."https://github.com/".insteadOf "git@github.com:"
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-          cd packages/css && npm publish --access public --registry https://registry.npmjs.org/ --no-git-tag-version
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish @social-5h3ll/5h3ll-cli to npm
-        run: |
-          git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
-          git config --global url."https://github.com/".insteadOf "git@github.com:"
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-          cd packages/cli && npm publish --access public --registry https://registry.npmjs.org/ --no-git-tag-version
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

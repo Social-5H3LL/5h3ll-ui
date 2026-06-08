@@ -1,5 +1,5 @@
-5H3LL-UI v0.1.2 — Public release archive
-Generated: 2026-06-07
+5H3LL-UI v0.1.3 — Public release archive
+Generated: 2026-06-08
 
 Purpose
 -------
@@ -41,8 +41,8 @@ Excluded from public release archive (local preview / maintainer only)
 
 Restore
 -------
-  unzip 5h3ll-ui-v0.1.2-release-2026-06-07.zip -d 5h3ll-ui-v0.1.2
-  cd 5h3ll-ui-v0.1.2
+  unzip 5h3ll-ui-v0.1.3-release-2026-06-08.zip -d 5h3ll-ui-v0.1.3
+  cd 5h3ll-ui-v0.1.3
   npm ci
   npm run build
   npm run docs:build

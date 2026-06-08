@@ -1,18 +1,31 @@
 {#
-  LobeHub brand image — one <img>; integrations page script swaps src on theme toggle.
+  LobeHub brand image — light/dark PNGs stacked; CSS toggles visibility (no src swap / CLS).
 #}
 {% macro lobe_brand_image(light_src, dark_src, alt="", class="", width=none, height=none) %}
-<img
-  class="integrations-brand-image {{ class }}"
-  src="{{ light_src }}"
-  data-brand-light="{{ light_src }}"
-  data-brand-dark="{{ dark_src }}"
-  alt="{{ alt }}"
-  {% if width %}width="{{ width }}"{% endif %}
-  {% if height %}height="{{ height }}"{% endif %}
-  loading="lazy"
-  decoding="async"
-/>
+<span
+  class="integrations-brand-media {{ class }}"
+  {% if width and height %}style="width: {{ width }}px; height: {{ height }}px;"{% endif %}
+>
+  <img
+    class="integrations-brand-image integrations-brand-image--light"
+    src="{{ light_src }}"
+    alt="{{ alt }}"
+    {% if width %}width="{{ width }}"{% endif %}
+    {% if height %}height="{{ height }}"{% endif %}
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    class="integrations-brand-image integrations-brand-image--dark"
+    src="{{ dark_src }}"
+    alt=""
+    aria-hidden="true"
+    {% if width %}width="{{ width }}"{% endif %}
+    {% if height %}height="{{ height }}"{% endif %}
+    loading="lazy"
+    decoding="async"
+  />
+</span>
 {% endmacro %}
 
 {% macro integration_agent_card(
